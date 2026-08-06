@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wie for Life｜くらしとお金の整理相談</title>
-<meta name="description" content="Wie for Lifeは、税金・保険・年金・相続・エンディングノートなど、これからの暮らしとお金の「気になること」を一緒に整理し、必要に応じて専門家や地域の支援先へつなぐ、シニアとご家族のための相談窓口です。">
+<title>Wie for Life｜つながりから、はじめませんか</title>
+<meta name="description" content="Wie for Lifeは、お出かけやサークルなど無料の関わりから始まり、必要になったら見守りや、税金・暮らしのサポートを選べる、市民活動です。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -20,8 +20,6 @@
     --cta:#E8899B;
     --cta-ink:#1F3A5C;
     --line:#E6DFC9;
-    --error:#A14A3D;
-    --error-bg:#F5E9E6;
     --font:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
     --container:1120px;
   }
@@ -37,10 +35,8 @@
 
   .skip-link{position:absolute;left:-999px;top:0;background:var(--navy);color:#fff;padding:12px 20px;z-index:300;border-radius:0 0 8px 0;text-decoration:none;font-size:14px;}
   .skip-link:focus{left:0;}
-
   :focus-visible{outline:3px solid var(--navy);outline-offset:2px;}
 
-  /* fade-in */
   .fade-in{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
   .fade-in.is-visible{opacity:1;transform:none;}
   @media (prefers-reduced-motion: reduce){
@@ -55,15 +51,15 @@
   .logo{font-weight:700;font-size:19px;color:var(--navy);text-decoration:none;letter-spacing:0.02em;white-space:nowrap;}
   .logo-sub{font-size:12.5px;color:var(--ink-soft);}
   .header-right{display:flex;align-items:center;gap:16px;}
-  nav.main-nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:20px;margin:0;padding:0;}
-  nav.main-nav a{text-decoration:none;color:var(--ink);font-size:15.5px;font-weight:500;}
+  nav.main-nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:18px;margin:0;padding:0;}
+  nav.main-nav a{text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;}
   nav.main-nav a:hover{color:var(--navy);}
-  .header-cta{background:var(--cta);color:var(--cta-ink);padding:12px 26px;border-radius:100px;text-decoration:none;font-weight:600;font-size:15.5px;white-space:nowrap;min-height:48px;display:inline-flex;align-items:center;transition:background .15s ease,color .15s ease;}
+  .header-cta{background:var(--cta);color:var(--cta-ink);padding:12px 24px;border-radius:100px;text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap;min-height:48px;display:inline-flex;align-items:center;transition:background .15s ease,color .15s ease;}
   .header-cta:hover{background:var(--navy);color:#fff;}
   .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:10px;}
   .nav-toggle span{display:block;width:24px;height:2px;background:var(--navy);margin:5px 0;}
 
-  @media (max-width:860px){
+  @media (max-width:900px){
     nav.main-nav{position:fixed;top:64px;left:0;right:0;height:calc(100vh - 64px);background:var(--bg);padding:24px;transform:translateY(-110%);transition:transform .25s ease;overflow-y:auto;pointer-events:none;}
     nav.main-nav.open{transform:translateY(0);pointer-events:auto;}
     nav.main-nav ul{flex-direction:column;gap:2px;}
@@ -90,117 +86,35 @@
   .btn-secondary:hover{background:var(--navy-soft);}
 
   /* hero */
-  .hero{padding:52px 0 64px;background:var(--bg);}
-  .hero-inner{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;}
-  @media (max-width:900px){.hero-inner{grid-template-columns:1fr;}.hero-media{order:-1;}}
-  .hero-tag{display:inline-block;background:var(--navy-soft);color:var(--navy);font-size:13.5px;font-weight:600;padding:6px 14px;border-radius:100px;margin-bottom:18px;}
-  .service-name{font-size:clamp(34px,5vw,50px);font-weight:800;color:var(--navy);line-height:1.3;margin:0 0 14px;text-wrap:balance;}
-  .hero-copy h1{font-size:clamp(20px,2.6vw,25px);font-weight:600;color:var(--ink-soft);line-height:1.6;margin:0 0 18px;text-wrap:balance;}
-  .hero-copy .lede{font-size:19.5px;color:var(--ink);margin-bottom:14px;}
-  .hero-copy .sub{font-size:17px;color:var(--ink-soft);margin-bottom:30px;}
-  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;}
-  .hero-media img{border-radius:16px;width:100%;height:auto;}
+  .hero{padding:56px 0 48px;background:var(--bg);text-align:center;}
+  .hero .eyebrow2{display:inline-block;background:var(--navy-soft);color:var(--navy);font-size:13.5px;font-weight:600;padding:6px 14px;border-radius:100px;margin-bottom:18px;}
+  .hero h1{font-size:clamp(28px,4.2vw,40px);color:var(--navy);line-height:1.5;max-width:760px;margin:0 auto 18px;text-wrap:balance;}
+  .hero .lede{font-size:18px;color:var(--ink-soft);max-width:620px;margin:0 auto;}
 
-  /* worries */
-  .worries-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
-  @media (max-width:760px){.worries-grid{grid-template-columns:1fr;}}
-  .worry-col{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:30px 28px;}
-  .worry-col h3{color:var(--navy);font-size:19px;margin:0 0 18px;}
-  .worry-col ul{list-style:none;padding:0;display:grid;gap:14px;}
-  .worry-col li{position:relative;padding-left:30px;font-size:17.5px;}
-  .worry-col li::before{content:"✓";position:absolute;left:0;top:0;color:var(--navy);font-weight:700;}
-  .worries-bridge{text-align:center;margin-top:36px;font-size:18px;color:var(--navy);font-weight:600;}
+  /* path (fork) */
+  .path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:pathstep;}
+  @media (max-width:860px){.path-grid{grid-template-columns:1fr;}}
+  .path-card{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:30px 26px;position:relative;display:flex;flex-direction:column;}
+  .path-card.axis{border-color:var(--navy);}
+  .path-step{display:inline-block;font-size:13px;font-weight:700;color:var(--navy);letter-spacing:0.06em;margin-bottom:10px;}
+  .path-badge{display:inline-block;font-size:12.5px;font-weight:700;padding:4px 12px;border-radius:100px;margin-bottom:14px;width:fit-content;}
+  .path-badge.free{background:var(--ok-bg,#E9F1EB);color:#3F7A5C;}
+  .path-badge.axis{background:var(--navy);color:#fff;}
+  .path-badge.option{background:var(--bg-alt);color:var(--ink-soft);}
+  .path-card h3{font-size:20px;color:var(--navy);margin:0 0 10px;}
+  .path-card p{font-size:15.5px;color:var(--ink-soft);margin:0 0 20px;flex-grow:1;}
+  .path-card .btn{align-self:flex-start;padding:12px 22px;font-size:16px;min-height:auto;}
+  .path-arrow{text-align:center;font-size:22px;color:var(--navy);display:none;}
+  @media (min-width:861px){.path-arrow{display:block;}}
 
-  /* concept */
-  .concept-lede{max-width:720px;margin:0 auto 20px;font-size:18.5px;text-align:center;}
-  .concept-story{max-width:720px;margin:0 auto 40px;background:var(--surface);border-left:4px solid var(--navy);padding:22px 26px;border-radius:6px;font-size:17px;color:var(--ink-soft);}
-  .promise-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;}
-  .promise-card{background:var(--surface);border-radius:14px;padding:24px 22px;border:1px solid var(--line);}
-  .promise-card .num{font-size:13px;color:var(--navy);font-weight:700;margin-bottom:10px;display:block;}
-  .promise-card h3{font-size:17.5px;color:var(--navy);margin:0 0 8px;}
-  .promise-card p{font-size:16.5px;color:var(--ink-soft);margin:0;}
+  /* option sub-grid */
+  .option-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:16px;}
+  .option-item{background:var(--bg-alt);border-radius:10px;padding:16px 18px;font-size:15px;color:var(--ink);}
+  .option-item strong{display:block;color:var(--navy);font-size:15.5px;margin-bottom:2px;}
 
-  /* services */
-  .service-photos{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:44px;}
-  @media (max-width:760px){.service-photos{grid-template-columns:1fr;}}
-  .service-photo{border-radius:14px;overflow:hidden;background:var(--surface);border:1px solid var(--line);}
-  .service-photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;}
-  .service-photo figcaption{font-size:15px;color:var(--ink-soft);padding:12px 16px;margin:0;}
-  .service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;}
-  .service-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;}
-  .service-card h3{font-size:18px;color:var(--navy);margin:0 0 8px;}
-  .service-card p{font-size:16.5px;color:var(--ink-soft);margin:0 0 14px;}
-  .responder-tag{display:inline-block;font-size:13.5px;padding:5px 12px;border-radius:100px;background:var(--navy-soft);color:var(--navy);font-weight:600;}
-
-  /* flow */
-  .flow-list{counter-reset:step;display:grid;gap:20px;max-width:760px;margin:0 auto;list-style:none;padding:0;}
-  .flow-item{counter-increment:step;display:grid;grid-template-columns:52px 1fr;gap:20px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 24px;align-items:start;}
-  .flow-item .step-num{width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;}
-  .flow-item .step-num::before{content:counter(step);}
-  .flow-item h3{font-size:17.5px;color:var(--navy);margin:0 0 6px;}
-  .flow-item p{font-size:16.5px;color:var(--ink-soft);margin:0;}
-  .flow-note{text-align:center;margin-top:24px;font-size:16px;color:var(--ink-soft);}
-
-  /* team */
-  .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;}
-  .team-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px 24px;}
-  .avatar{width:56px;height:56px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:700;margin-bottom:16px;}
-  .team-card .role{font-size:14px;color:var(--ink-soft);margin-bottom:4px;}
-  .team-card h3{font-size:18px;color:var(--navy);margin:0 0 10px;}
-  .team-card p{font-size:16.5px;color:var(--ink-soft);margin:0;}
-  .team-note{margin-top:28px;text-align:center;font-size:16.5px;color:var(--navy);font-weight:600;}
-
-  /* family */
-  .family-inner{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
-  @media (max-width:860px){.family-inner{grid-template-columns:1fr;}}
-  .family-media img{border-radius:16px;}
-  .family-copy p{font-size:17.5px;color:var(--ink);margin-bottom:16px;}
-
-  /* cases */
-  .case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
-  .case-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;}
-  .case-tag{font-size:13.5px;color:var(--navy);font-weight:700;margin-bottom:8px;display:block;}
-  .case-card dt{font-size:13px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.05em;margin-top:12px;}
-  .case-card dd{margin:4px 0 0;font-size:16.5px;color:var(--ink);}
-  .case-disclaimer{text-align:center;font-size:14.5px;color:var(--ink-soft);margin-top:24px;}
-
-  /* price */
-  .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:900px;margin:0 auto;}
-  .price-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;text-align:center;}
-  .price-card h3{font-size:17.5px;color:var(--navy);margin:0 0 12px;}
-  .price-card .amount{font-size:24px;font-weight:700;color:var(--ink);margin-bottom:10px;font-variant-numeric:tabular-nums;}
-  .price-card p{font-size:15.5px;color:var(--ink-soft);margin:0;}
-  .price-note{max-width:640px;margin:32px auto 0;text-align:center;background:var(--navy-soft);color:var(--navy);padding:16px 20px;border-radius:10px;font-size:16.5px;}
-
-  /* faq */
-  .faq-list{max-width:760px;margin:0 auto;display:grid;gap:12px;}
-  details.faq-item{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:2px 22px;}
-  details.faq-item summary{cursor:pointer;padding:18px 34px 18px 0;font-weight:600;color:var(--navy);font-size:17.5px;list-style:none;position:relative;}
-  details.faq-item summary::-webkit-details-marker{display:none;}
-  details.faq-item summary::after{content:"+";position:absolute;right:0;top:14px;font-size:22px;color:var(--navy);transition:transform .2s;}
-  details.faq-item[open] summary::after{transform:rotate(45deg);}
-  details.faq-item p{margin:0 0 18px;font-size:16.5px;color:var(--ink-soft);}
-
-  /* apply */
-  .apply-inner{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start;}
-  @media (max-width:900px){.apply-inner{grid-template-columns:1fr;}}
-  form.apply-form{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:32px;display:grid;gap:20px;}
-  .form-group{display:grid;gap:8px;}
-  .form-group label{font-size:16px;font-weight:600;color:var(--navy);}
-  .form-group input,.form-group select,.form-group textarea{font-family:var(--font);font-size:17px;padding:14px 16px;border:1.5px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);width:100%;}
-  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--navy);}
-  .radio-group{display:flex;flex-wrap:wrap;gap:12px;}
-  .radio-option{display:flex;align-items:center;gap:8px;background:var(--bg);border:1.5px solid var(--line);border-radius:100px;padding:12px 18px;font-size:16px;cursor:pointer;}
-  .radio-option input{accent-color:var(--navy);width:18px;height:18px;}
-  .checkbox-row{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--ink-soft);}
-  .checkbox-row input{margin-top:3px;accent-color:var(--navy);width:18px;height:18px;flex-shrink:0;}
-  .form-status{font-size:16px;padding:14px 16px;border-radius:8px;display:none;}
-  .form-status.show{display:block;}
-  .form-status.success{background:var(--navy-soft);color:var(--navy);}
-  .form-status.error{background:var(--error-bg);color:var(--error);}
-  .apply-note{background:var(--bg-alt);border-radius:16px;padding:28px;font-size:15.5px;color:var(--ink);}
-  .apply-note h3{color:var(--navy);font-size:17px;margin:0 0 14px;}
-  .apply-note ul{padding-left:18px;margin:0;display:grid;gap:10px;}
+  /* mission teaser */
+  .mission-teaser{max-width:720px;margin:0 auto;text-align:center;background:var(--navy-soft);border-radius:16px;padding:32px 30px;}
+  .mission-teaser p{font-size:17px;color:var(--navy);margin:0 0 18px;line-height:1.9;}
 
   /* footer */
   footer.site-footer{background:var(--navy);color:#EDEFEA;padding:52px 0 30px;}
@@ -218,24 +132,20 @@
 
 <header class="site-header">
   <div class="header-inner">
-    <a class="logo-group" href="#hero">
+    <a class="logo-group" href="index.html">
       <span class="logo">Wie for Life</span>
-      <span class="logo-sub">くらしとお金の整理相談</span>
+      <span class="logo-sub">つながりから、はじめませんか</span>
     </a>
     <div class="header-right">
       <nav class="main-nav" id="main-nav">
         <ul>
           <li><a href="about.html">私たちについて</a></li>
-          <li><a href="#worries">悩み</a></li>
-          <li><a href="#services">相談内容</a></li>
-          <li><a href="#flow">流れ</a></li>
-          <li><a href="#team">メンバー</a></li>
-          <li><a href="#family">ご家族へ</a></li>
-          <li><a href="#price">料金</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="services.html#events">無料の関わり</a></li>
+          <li><a href="mimamori.html">見守り</a></li>
+          <li><a href="index.html#options">単発オプション</a></li>
         </ul>
       </nav>
-      <a class="header-cta" href="#apply">初回相談を申し込む</a>
+      <a class="header-cta" href="#free">まずは参加してみる</a>
       <button class="nav-toggle" id="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="メニューを開く">
         <span></span><span></span><span></span>
       </button>
@@ -247,474 +157,111 @@
 
   <!-- hero -->
   <section class="hero" id="hero">
-    <div class="container hero-inner">
-      <div class="hero-copy">
-        <span class="hero-tag">ご本人も、ご家族も。</span>
-        <p class="service-name">くらしとお金の整理相談</p>
-        <h1>答えを急がず、<br>まず一緒に整理する。</h1>
-        <p class="lede">暮らし・お金・将来の「気になること」を、一緒に整理しませんか。</p>
-        <p class="sub">税金、保険、年金、相続した不動産、エンディングノート。一つずつでも、まとめてでも。テーマが決まっていなくてもご相談いただけます。</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#apply">初回相談を申し込む</a>
-          <a class="btn btn-secondary" href="#services">相談できる内容を見る</a>
-        </div>
-      </div>
-      <div class="hero-media">
-        <img src="assets/images/hero-bg.png" alt="明るいリビングで、書類を見ながら穏やかに話す60代女性と女性相談員">
-      </div>
+    <div class="container">
+      <span class="eyebrow2">Wie for Life</span>
+      <h1>まずは、参加するだけでいい。<br>そこから、必要なものを選べます。</h1>
+      <p class="lede">お出かけやサークルで気軽につながり、必要になったら見守りや、税金・暮らしのサポートを選べます。どこから始めても構いません。</p>
     </div>
   </section>
 
-  <!-- worries -->
-  <section class="sec-base" id="worries">
+  <!-- path fork -->
+  <section class="sec-base">
     <div class="container">
       <div class="section-head fade-in">
-        <span class="eyebrow">Worries</span>
-        <h2>こんなことで悩んでいませんか?</h2>
-        <p>一つでも当てはまれば、まずお話をうかがうところから始められます。</p>
-      </div>
-      <div class="worries-grid fade-in">
-        <div class="worry-col">
-          <h3>ご本人</h3>
-          <ul>
-            <li>何から準備すればよいのか分からない</li>
-            <li>相談したいことが税金なのか、保険なのか、介護なのか分からない</li>
-            <li>役所や保険会社から届いた書類が分かりにくい</li>
-            <li>子どもに迷惑をかけたくないが、何を伝えればよいか分からない</li>
-            <li>専門家に相談するほどの内容なのか、自分では判断できない</li>
-          </ul>
-        </div>
-        <div class="worry-col">
-          <h3>ご家族</h3>
-          <ul>
-            <li>離れて暮らす親の生活や手続きが心配</li>
-            <li>本人に何をどう聞けばいいのか分からない</li>
-            <li>家族だけでは話しにくいことがある</li>
-            <li>商品や高額な契約を勧められないか心配</li>
-          </ul>
-        </div>
-      </div>
-      <p class="worries-bridge fade-in">その「気になること」、まとめてご相談いただけます。</p>
-    </div>
-  </section>
-
-  <!-- concept -->
-  <section class="sec-alt" id="concept">
-    <div class="container">
-      <div class="section-head fade-in">
-        <span class="eyebrow">Concept</span>
-        <h2>答えを急がず、まず一緒に整理することから。</h2>
-      </div>
-      <p class="concept-lede fade-in">Wie for Lifeは、一つの分野だけを見るのではなく、まずお話をうかがい、今の状況や困りごとを一緒に整理することを大切にしています。</p>
-      <div class="concept-story fade-in">
-        Wie for Lifeは、税務相談をきっかけに生まれました。確定申告のご相談にいらした方から、実は年金のことも、実家のことも、これからの暮らしのことも気になっている、というお話をよく伺ってきました。だからこそ、一つの相談窓口で、暮らし全体の「気になること」に向き合うことにしました。
-      </div>
-      <div class="promise-grid fade-in">
-        <div class="promise-card">
-          <span class="num">01</span>
-          <h3>商品や契約を目的にしません</h3>
-          <p>大切にしているのはご相談そのもの。特定の保険や商品を売ることは目的にしていません。</p>
-        </div>
-        <div class="promise-card">
-          <span class="num">02</span>
-          <h3>決めるのは、いつも本人</h3>
-          <p>ご本人の希望をうかがいながら、一緒に考えます。</p>
-        </div>
-        <div class="promise-card">
-          <span class="num">03</span>
-          <h3>困りごとが明確でなくても大丈夫</h3>
-          <p>まだ何が気になるのかはっきりしない段階でもご相談いただけます。</p>
-        </div>
-        <div class="promise-card">
-          <span class="num">04</span>
-          <h3>元気なうちから、少しずつ</h3>
-          <p>焦らず、ご自身のペースで準備を進められます。</p>
-        </div>
-        <div class="promise-card">
-          <span class="num">05</span>
-          <h3>相談後は「次にすべきこと」が分かる状態に</h3>
-          <p>話して終わりではなく、整理された状態でお持ち帰りいただきます。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- services -->
-  <section class="sec-base" id="services">
-    <div class="container">
-      <div class="section-head fade-in">
-        <span class="eyebrow">Services</span>
-        <h2>こんなことをまとめて相談できます</h2>
-        <p>以下は相談の入口の例です。気になることが一つでも、複数でも構いません。</p>
+        <span class="eyebrow">How it works</span>
+        <h2>3つの関わり方</h2>
+        <p>見守りに入らないと他が頼めない、ということはありません。それぞれ単独でご利用いただけます。</p>
       </div>
 
-      <div class="service-photos fade-in">
-        <figure class="service-photo">
-          <img src="assets/images/tax-consultation.png" alt="年金や税金の書類を一緒に確認しながら話す60代女性と女性相談員">
-          <figcaption>税金・年金にまつわる書類を、一緒に確認します</figcaption>
-        </figure>
-        <figure class="service-photo">
-          <img src="assets/images/insurance-organizing.png" alt="自宅のテーブルで保険の書類を整理する女性と相談員">
-          <figcaption>加入している保険の内容も、一緒に整理します</figcaption>
-        </figure>
-      </div>
+      <div class="path-grid fade-in">
+        <div class="path-card">
+          <span class="path-badge free">無料・誰でも</span>
+          <span class="path-step">STEP 1</span>
+          <h3>無料の関わり</h3>
+          <p>お出かけ、サークル、お茶会など。売り込みのない、気軽な集まりです。まずはここから顔を出してみませんか。</p>
+          <a class="btn btn-secondary" href="services.html#events">イベント・サークルを見る</a>
+        </div>
 
-      <div class="service-grid fade-in">
-        <div class="service-card">
-          <h3>税金・確定申告</h3>
-          <p>確定申告や税務に関するご相談。</p>
-          <span class="responder-tag">税理士(代表本人)が対応</span>
-        </div>
-        <div class="service-card">
-          <h3>年金と税金の確認</h3>
-          <p>年金にまつわる税金の仕組みや、書類の見方の整理。</p>
-          <span class="responder-tag">税理士(代表本人)が対応</span>
-        </div>
-        <div class="service-card">
-          <h3>医療費・保険の相談</h3>
-          <p>加入している保険や書類の整理、制度の一般的な説明。</p>
-          <span class="responder-tag">知見を生かした情報整理</span>
-        </div>
-        <div class="service-card">
-          <h3>相続した不動産・住まい</h3>
-          <p>現状・希望の整理と、必要な手続きの洗い出し。</p>
-          <span class="responder-tag">整理まで担当・必要に応じ専門家へ橋渡し</span>
-        </div>
-        <div class="service-card">
-          <h3>エンディングノート作成支援</h3>
-          <p>家族に伝えたいことや希望の整理(法的効力のある遺言書ではありません)。</p>
-          <span class="responder-tag">スタッフが記入をサポート</span>
-        </div>
-        <div class="service-card">
-          <h3>家族への情報整理</h3>
-          <p>家族に伝えておきたい情報や希望の整理。</p>
-          <span class="responder-tag">スタッフが対応</span>
-        </div>
-        <div class="service-card">
-          <h3>手続き・相談先の整理</h3>
-          <p>必要な手続きや、相談すべき窓口の整理。</p>
-          <span class="responder-tag">スタッフが対応</span>
-        </div>
-        <div class="service-card">
-          <h3>専門家への橋渡し</h3>
-          <p>内容に応じて、適切な専門家や地域の支援先をご案内します。</p>
-          <span class="responder-tag">必要に応じてご案内</span>
-        </div>
-        <div class="service-card">
+        <div class="path-card axis">
+          <span class="path-badge axis">継続・軸となるサービス</span>
+          <span class="path-step">見守り</span>
           <h3>定期見守り訪問</h3>
-          <p>月1回程度ご自宅にお伺いし、お元気に過ごされているか、郵便物や書類がたまっていないかを確認します。訪問のたびにご家族へ報告し、気になる点があれば速やかにご連絡します。</p>
-          <span class="responder-tag">スタッフが対応</span>
-          <p style="margin-top:12px;"><a href="mimamori.html" style="font-weight:600;">詳しく見る →</a></p>
+          <p>月1回程度のご自宅訪問で、安否確認と郵便物・書類の様子を確認します。離れて暮らすご家族にも安心をお届けします。</p>
+          <a class="btn btn-primary" href="mimamori.html">見守り訪問を見る</a>
+        </div>
+
+        <div class="path-card">
+          <span class="path-badge option">単発・都度</span>
+          <span class="path-step">オプション</span>
+          <h3>単発オプション</h3>
+          <p>見守りに入らなくても、必要なものだけ単品で頼めます。</p>
+          <div class="option-grid" style="margin-top:auto;">
+            <div class="option-item"><strong>くらしとお金の整理相談</strong>税金・保険・相続など</div>
+            <div class="option-item"><strong>整理収納・ハンドケア・フットケア</strong>準備中</div>
+          </div>
+          <a class="btn btn-secondary" style="margin-top:20px;" href="services.html">オプション一覧を見る</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- flow -->
-  <section class="sec-alt" id="flow">
+  <!-- free detail -->
+  <section class="sec-alt" id="free">
     <div class="container">
       <div class="section-head fade-in">
-        <span class="eyebrow">Flow</span>
-        <h2>相談の流れ</h2>
-        <p>対面・オンラインいずれも対応しています。目安は60分程度です。</p>
+        <span class="eyebrow">Step 1 - Free</span>
+        <h2>無料の関わりから</h2>
+        <p>お出かけ、サークル、お茶会。参加費はいただきません。まずは人とつながる場として、気軽にご利用ください。</p>
       </div>
-      <ol class="flow-list fade-in">
-        <li class="flow-item">
-          <span class="step-num" aria-hidden="true"></span>
-          <div>
-            <h3>お申し込み・ヒアリング予約</h3>
-            <p>フォームまたはお電話で、ご都合の良い日時をご相談ください。</p>
-          </div>
-        </li>
-        <li class="flow-item">
-          <span class="step-num" aria-hidden="true"></span>
-          <div>
-            <h3>初回相談(現状整理)</h3>
-            <p>今気になっていることをうかがいながら、一緒に状況を整理します。テーマが決まっていなくても大丈夫です。</p>
-          </div>
-        </li>
-        <li class="flow-item">
-          <span class="step-num" aria-hidden="true"></span>
-          <div>
-            <h3>専門性を生かした個別対応</h3>
-            <p>内容に応じて、税理士や知見を持つスタッフが対応します。</p>
-          </div>
-        </li>
-        <li class="flow-item">
-          <span class="step-num" aria-hidden="true"></span>
-          <div>
-            <h3>次にすべきことのご案内</h3>
-            <p>整理した内容と、必要であればご案内できる専門家・支援先をお伝えします。</p>
-          </div>
-        </li>
-      </ol>
-      <p class="flow-note">一度で全部決めなくても構いません。ご自身のペースで進められます。</p>
+      <div style="text-align:center;">
+        <a class="btn btn-primary" href="services.html#events">イベント・サークルの案内を見る</a>
+      </div>
     </div>
   </section>
 
-  <!-- team -->
-  <section class="sec-base" id="team">
+  <!-- mimamori detail -->
+  <section class="sec-base" id="mimamori">
     <div class="container">
       <div class="section-head fade-in">
-        <span class="eyebrow">Team</span>
-        <h2>専門性を生かしたメンバーが対応します</h2>
-        <p>それぞれの対応範囲を、誠実にご案内します。</p>
+        <span class="eyebrow">軸となるサービス</span>
+        <h2>見守りは、私たちが一番育てたいサービスです</h2>
+        <p>無料の関わりで生まれた信頼をもとに、継続的な安心をお届けするのが見守りです。ご本人・ご家族どちらからもお申し込みいただけます。</p>
       </div>
-      <div class="team-grid fade-in">
-        <div class="team-card">
-          <div class="avatar" aria-hidden="true">税</div>
-          <p class="role">代表 ／ 税理士</p>
-          <h3>税務・確定申告のご相談</h3>
-          <p>税務相談、確定申告、年金や医療費に関わる税金の確認など、税務に関するご相談に正式に対応します。</p>
-        </div>
-        <div class="team-card">
-          <div class="avatar" aria-hidden="true">介</div>
-          <p class="role">スタッフ ／ 介護保険の知見を持つ担当</p>
-          <h3>介護に関する情報整理</h3>
-          <p>介護保険制度の分かりやすい説明や状況整理、地域の窓口(地域包括支援センター等)へのご案内を行います。ケアプランの作成や認定申請の代行は行っておりません。</p>
-        </div>
-        <div class="team-card">
-          <div class="avatar" aria-hidden="true">保</div>
-          <p class="role">スタッフ ／ 保険分野に詳しい担当</p>
-          <h3>保険の書類整理</h3>
-          <p>加入している保険の内容確認や書類整理、制度の一般的な説明を行います。特定の商品のご提案や乗り換えの勧誘は行っておりません。</p>
-        </div>
-      </div>
-      <p class="team-note">対応できない内容は、無理に引き受けず、必要な専門家や支援先へおつなぎします。</p>
-    </div>
-  </section>
-
-  <!-- family -->
-  <section class="sec-alt" id="family">
-    <div class="container family-inner">
-      <div class="family-copy fade-in">
-        <span class="eyebrow">For Family</span>
-        <h2>離れて暮らすご家族の方へ</h2>
-        <p>「実家に帰るたびに、書類が増えている気がする」「本人は『大丈夫』と言うけれど、何となく気になる」。そんなときは、まずご家族だけでご相談いただいても構いません。</p>
-        <p>特に、月1回程度ご自宅にお伺いする「<a href="mimamori.html">定期見守り訪問</a>」は、離れて暮らすご家族からのお申し込みが多いメニューです。お元気に過ごされているか、郵便物や書類がたまっていないかを確認し、訪問のたびにご報告します。気になる点があれば、速やかにご連絡します。</p>
-        <p>最終的に何を進めるかは、ご本人の意思を尊重します。ご相談いただいた内容の取り扱いについても、ご不安な点があればお気軽にご確認ください。</p>
-        <div class="hero-actions">
-          <a class="btn btn-secondary" href="#apply">ご家族として、まずは話を聞いてみる</a>
-          <a class="btn btn-secondary" href="mimamori.html">見守り訪問について詳しく見る</a>
-        </div>
-      </div>
-      <div class="family-media fade-in">
-        <img src="assets/images/family-conversation.png" alt="母親と娘、女性相談員の三人が書類を前に穏やかに話している様子">
+      <div style="text-align:center;">
+        <a class="btn btn-primary" href="mimamori.html">定期見守り訪問について詳しく見る</a>
       </div>
     </div>
   </section>
 
-  <!-- cases -->
-  <section class="sec-base" id="cases">
+  <!-- options detail -->
+  <section class="sec-alt" id="options">
     <div class="container">
       <div class="section-head fade-in">
-        <span class="eyebrow">Cases</span>
-        <h2>ご相談いただいた例</h2>
-        <p>似た状況の方が、実際にどう整理できたかをご紹介します。</p>
+        <span class="eyebrow">単発オプション</span>
+        <h2>必要なものだけ、単品で</h2>
+        <p>見守りのご契約がなくても、単発でご相談・ご依頼いただけます。</p>
       </div>
-      <div class="case-grid fade-in">
-        <div class="case-card">
-          <span class="case-tag">60代女性・確定申告をきっかけに</span>
-          <dl>
-            <dt>状況</dt>
-            <dd>年金の受給が始まり確定申告が必要になったが、何から手をつければよいか分からなかった。</dd>
-            <dt>ご相談内容</dt>
-            <dd>申告に必要な書類の整理とあわせて、今後の医療費や保険についても気になっていることをうかがった。</dd>
-            <dt>整理された結果</dt>
-            <dd>申告の準備を進めながら保険の書類も一緒に確認し、次に見直すタイミングの目安が分かる状態になった。</dd>
-          </dl>
+      <div class="path-grid fade-in" style="grid-template-columns:repeat(2,1fr);">
+        <div class="path-card">
+          <h3>くらしとお金の整理相談</h3>
+          <p>税金、保険、年金、相続、エンディングノート。気になることをまとめて整理します。</p>
+          <a class="btn btn-secondary" href="money-consult.html">詳しく見る</a>
         </div>
-        <div class="case-card">
-          <span class="case-tag">40代・離れて暮らすご家族から</span>
-          <dl>
-            <dt>状況</dt>
-            <dd>実家の母が一人暮らしで、介護保険の制度がよく分からないまま不安を感じていた。</dd>
-            <dt>ご相談内容</dt>
-            <dd>まずご家族だけで、制度の分かりやすい説明と今後の相談先についてうかがった。</dd>
-            <dt>整理された結果</dt>
-            <dd>地域の相談窓口の情報を得て、本人に伝えるタイミングを考えられるようになった。</dd>
-          </dl>
+        <div class="path-card">
+          <h3>整理収納・ハンドケア・フットケアなど</h3>
+          <p>女性を中心とした様々な分野の担当者によるサービスです。準備中のものも含め、一覧でご紹介しています。</p>
+          <a class="btn btn-secondary" href="services.html">一覧を見る</a>
         </div>
-        <div class="case-card">
-          <span class="case-tag">70代女性・エンディングノートをきっかけに</span>
-          <dl>
-            <dt>状況</dt>
-            <dd>家族に伝えておきたいことはあるが、一人でノートに向き合うのが難しいと感じていた。</dd>
-            <dt>ご相談内容</dt>
-            <dd>スタッフと一緒に、伝えたいことを少しずつノートに整理した。</dd>
-            <dt>整理された結果</dt>
-            <dd>書き終えた項目から、家族と話すきっかけができた。</dd>
-          </dl>
-        </div>
-      </div>
-      <p class="case-disclaimer">掲載内容は、個人が特定されないよう一般化してご紹介しています。</p>
-    </div>
-  </section>
-
-  <!-- price -->
-  <section class="sec-alt" id="price">
-    <div class="container">
-      <div class="section-head fade-in">
-        <span class="eyebrow">Price</span>
-        <h2>料金について</h2>
-        <p>相談のみでのご契約のお願いはいたしません。料金が発生する場合は、事前に必ずご説明します。</p>
-      </div>
-      <div class="price-grid fade-in">
-        <div class="price-card">
-          <h3>初回相談(ヒアリング)</h3>
-          <div class="amount">現在確認中です</div>
-          <p>詳しくはお問い合わせください</p>
-        </div>
-        <div class="price-card">
-          <h3>エンディングノート作成会</h3>
-          <div class="amount">現在確認中です</div>
-          <p>詳しくはお問い合わせください</p>
-        </div>
-        <div class="price-card">
-          <h3>個別相談・税理士業務</h3>
-          <div class="amount">内容に応じてご案内</div>
-          <p>事前に費用をご説明したうえで進めます</p>
-        </div>
-        <div class="price-card">
-          <h3>定期見守り訪問</h3>
-          <div class="amount">現在確認中です</div>
-          <p>頻度・内容はご相談のうえ決定します</p>
-        </div>
-      </div>
-      <p class="price-note">「相談してみたら高額な契約を勧められた」ということがないよう、料金は必ず事前にお伝えします。</p>
-    </div>
-  </section>
-
-  <!-- faq -->
-  <section class="sec-base" id="faq">
-    <div class="container">
-      <div class="section-head fade-in">
-        <span class="eyebrow">FAQ</span>
-        <h2>よくある質問</h2>
-      </div>
-      <div class="faq-list fade-in">
-        <details class="faq-item">
-          <summary>相談すると、何か商品を勧められますか?</summary>
-          <p>いいえ。Wie for Lifeは商品の販売や契約を目的にしていません。まずは状況を整理することを大切にしています。</p>
-        </details>
-        <details class="faq-item">
-          <summary>本人ではなく、家族だけで相談してもいいですか?</summary>
-          <p>はい、ご家族だけでのご相談も可能です。最終的に何を進めるかは、ご本人の意思を尊重します。</p>
-        </details>
-        <details class="faq-item">
-          <summary>何を持っていけばいいですか?</summary>
-          <p>特別な準備は必要ありません。気になっている書類などがあればお持ちください。何もなくてもご相談いただけます。</p>
-        </details>
-        <details class="faq-item">
-          <summary>オンラインでの相談はできますか?</summary>
-          <p>対応可能です。お申し込みの際にご希望の方法をお知らせください。</p>
-        </details>
-        <details class="faq-item">
-          <summary>相談した内容は、他の家族に伝わりますか?</summary>
-          <p>ご本人の同意なく、内容を第三者にお伝えすることはありません。</p>
-        </details>
-        <details class="faq-item">
-          <summary>専門家を紹介してもらう場合、追加費用はかかりますか?</summary>
-          <p>ご紹介自体に費用はいただきません。専門家に依頼される場合の費用は、各専門家からのご案内によります。</p>
-        </details>
-        <details class="faq-item">
-          <summary>エンディングノートに法的な効力はありますか?</summary>
-          <p>ありません。エンディングノートは、ご自身の希望やお考えを整理し、家族に伝えるためのものです。法的な効力のある書類(遺言書など)が必要な場合は、専門家をご案内します。</p>
-        </details>
-        <details class="faq-item">
-          <summary>相談するほどの内容か分かりませんが、大丈夫ですか?</summary>
-          <p>大丈夫です。「相談するほどのことか分からない」という段階からのご相談を、むしろ多くいただいています。</p>
-        </details>
-        <details class="faq-item">
-          <summary>見守り訪問は、介護保険サービスの代わりになりますか?</summary>
-          <p>いいえ、介護保険サービスではありません。安否確認と、郵便物・書類の様子確認を中心とした見守りです。介護に関するご相談が必要な場合は、地域包括支援センターなど適切な窓口をご案内します。</p>
-        </details>
-        <details class="faq-item">
-          <summary>見守り訪問の頻度は選べますか?</summary>
-          <p>はい。まずは月1回程度を目安にご案内していますが、頻度はご相談のうえ決定します。</p>
-        </details>
       </div>
     </div>
   </section>
 
-  <!-- apply -->
-  <section class="sec-alt" id="apply">
+  <!-- mission teaser -->
+  <section class="sec-base">
     <div class="container">
-      <div class="section-head fade-in">
-        <span class="eyebrow">Apply</span>
-        <h2>まずは気軽にお話ししてみませんか</h2>
-        <p>売り込みを目的としたご案内はいたしません。</p>
-      </div>
-      <div class="apply-inner fade-in">
-        <form class="apply-form" id="apply-form" novalidate>
-          <div class="form-group">
-            <label id="consultation-type-label">ご希望の相談種別<span aria-hidden="true"> *</span></label>
-            <div class="radio-group" role="group" aria-labelledby="consultation-type-label">
-              <label class="radio-option">
-                <input type="radio" name="consultation-type" value="初回相談(ヒアリング)" required>
-                初回相談(ヒアリング)
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="consultation-type" value="エンディングノート作成会">
-                エンディングノート作成会
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="consultation-type" value="定期見守り訪問について相談したい">
-                定期見守り訪問について相談したい
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="applicant-name">お名前<span aria-hidden="true"> *</span></label>
-            <input type="text" id="applicant-name" name="applicant-name" required autocomplete="name">
-          </div>
-
-          <div class="form-group">
-            <label for="applicant-relation">ご本人との関係</label>
-            <select id="applicant-relation" name="applicant-relation">
-              <option value="本人">ご本人として申し込む</option>
-              <option value="家族">ご家族として申し込む</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="applicant-contact">ご連絡先(電話番号またはメールアドレス)<span aria-hidden="true"> *</span></label>
-            <input type="text" id="applicant-contact" name="applicant-contact" required autocomplete="tel">
-          </div>
-
-          <div class="form-group">
-            <label id="method-label">ご希望の相談方法</label>
-            <div class="radio-group" role="group" aria-labelledby="method-label">
-              <label class="radio-option"><input type="radio" name="method" value="対面" checked>対面</label>
-              <label class="radio-option"><input type="radio" name="method" value="オンライン">オンライン</label>
-              <label class="radio-option"><input type="radio" name="method" value="電話">電話</label>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="applicant-message">気になっていること(任意)</label>
-            <textarea id="applicant-message" name="applicant-message" rows="4" placeholder="まだ漠然としている内容でも構いません"></textarea>
-          </div>
-
-          <label class="checkbox-row">
-            <input type="checkbox" name="privacy" required>
-            <span>入力内容の取り扱いについて確認し、同意します。</span>
-          </label>
-
-          <button type="submit" class="btn btn-primary">この内容で申し込む</button>
-          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
-        </form>
-
-        <div class="apply-note">
-          <h3>お申し込み前に</h3>
-          <ul>
-            <li>ご相談は、契約や商品のご提案を目的としたものではありません。</li>
-            <li>テーマが決まっていなくてもお申し込みいただけます。</li>
-            <li>ご家族だけでのお申し込みも可能です。</li>
-            <li>料金が発生する場合は、事前に必ずご説明します。</li>
-          </ul>
-        </div>
+      <div class="mission-teaser fade-in">
+        <p>Wie for Lifeは、一つのサービスではなく、こうしたつながりを少しずつ積み重ねていく、市民活動です。</p>
+        <a class="btn btn-secondary" href="about.html">私たちが大切にしていることを見る</a>
       </div>
     </div>
   </section>
@@ -732,11 +279,9 @@
         <h3>サイト内リンク</h3>
         <ul>
           <li><a href="about.html">私たちについて</a></li>
-          <li><a href="services.html">くらしの楽しみと安心サポート</a></li>
           <li><a href="mimamori.html">定期見守り訪問</a></li>
-          <li><a href="#services">相談できる内容</a></li>
-          <li><a href="#team">対応するメンバーと資格</a></li>
-          <li><a href="#faq">よくある質問</a></li>
+          <li><a href="money-consult.html">くらしとお金の整理相談</a></li>
+          <li><a href="services.html">くらしの楽しみと安心サポート</a></li>
         </ul>
       </div>
       <div>
@@ -782,41 +327,6 @@
       });
     }, { threshold: 0.15 });
     fadeEls.forEach(function(el){ observer.observe(el); });
-  }
-
-  var form = document.getElementById('apply-form');
-  var status = document.getElementById('form-status');
-  if(form){
-    form.addEventListener('submit', function(e){
-      e.preventDefault();
-
-      var valid = true;
-      form.querySelectorAll('[required]').forEach(function(field){
-        if(field.type === 'checkbox'){
-          if(!field.checked){ valid = false; }
-        } else if(field.type !== 'radio' && !field.value.trim()){
-          valid = false;
-        }
-      });
-      if(!form.querySelector('input[name="consultation-type"]:checked')){ valid = false; }
-
-      if(!valid){
-        status.textContent = 'ご入力内容をご確認ください。必須項目が入力されていません。';
-        status.className = 'form-status show error';
-        status.focus && status.focus();
-        return;
-      }
-
-      var data = new FormData(form);
-      var payload = {};
-      data.forEach(function(value, key){ payload[key] = value; });
-      console.log('Wie for Life 申込フォーム送信内容(ダミー):', payload);
-      // TODO: 送信先エンドポイントを実装後に接続
-
-      status.textContent = '送信内容を確認しました。担当より折り返しご連絡いたします。';
-      status.className = 'form-status show success';
-      form.reset();
-    });
   }
 })();
 </script>
