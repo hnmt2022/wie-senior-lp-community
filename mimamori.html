@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>定期見守り訪問｜Wie for Life</title>
+<meta name="description" content="離れて暮らすご家族へ。月1回程度のご自宅訪問で、安否確認と郵便物・書類の様子を確認し、気になる点はご報告します。Wie for Lifeの見守りサービス。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBF6EA;
+    --bg-alt:#F5E7BE;
+    --surface:#FFFFFF;
+    --navy:#1F3A5C;
+    --navy-soft:#E7ECF1;
+    --ink:#322C22;
+    --ink-soft:#6B6152;
+    --cta:#E8899B;
+    --cta-ink:#1F3A5C;
+    --line:#E6DFC9;
+    --error:#A14A3D;
+    --error-bg:#F5E9E6;
+    --ok:#3F7A5C;
+    --ok-bg:#E9F1EB;
+    --font:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --container:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.85;font-size:18px;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+  a{color:var(--navy);}
+  h1,h2,h3{font-family:var(--font);font-weight:700;margin:0;}
+  p{margin:0 0 1em;}
+  ul{margin:0;}
+  .container{max-width:var(--container);margin:0 auto;padding:0 24px;}
+
+  .skip-link{position:absolute;left:-999px;top:0;background:var(--navy);color:#fff;padding:12px 20px;z-index:300;border-radius:0 0 8px 0;text-decoration:none;font-size:14px;}
+  .skip-link:focus{left:0;}
+  :focus-visible{outline:3px solid var(--navy);outline-offset:2px;}
+
+  .fade-in{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+  .fade-in.is-visible{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .fade-in{opacity:1;transform:none;transition:none;}
+  }
+
+  /* header */
+  header.site-header{position:sticky;top:0;z-index:100;background:rgba(251,246,234,0.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;max-width:var(--container);margin:0 auto;}
+  .logo-group{display:flex;flex-direction:column;line-height:1.3;}
+  .logo{font-weight:700;font-size:19px;color:var(--navy);text-decoration:none;letter-spacing:0.02em;white-space:nowrap;}
+  .logo-sub{font-size:12.5px;color:var(--ink-soft);}
+  .header-right{display:flex;align-items:center;gap:16px;}
+  nav.main-nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:18px;margin:0;padding:0;}
+  nav.main-nav a{text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;}
+  nav.main-nav a:hover{color:var(--navy);}
+  .header-cta{background:var(--cta);color:var(--cta-ink);padding:12px 24px;border-radius:100px;text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap;min-height:48px;display:inline-flex;align-items:center;transition:background .15s ease,color .15s ease;}
+  .header-cta:hover{background:var(--navy);color:#fff;}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:10px;}
+  .nav-toggle span{display:block;width:24px;height:2px;background:var(--navy);margin:5px 0;}
+
+  @media (max-width:900px){
+    nav.main-nav{position:fixed;top:64px;left:0;right:0;height:calc(100vh - 64px);background:var(--bg);padding:24px;transform:translateY(-110%);transition:transform .25s ease;overflow-y:auto;pointer-events:none;}
+    nav.main-nav.open{transform:translateY(0);pointer-events:auto;}
+    nav.main-nav ul{flex-direction:column;gap:2px;}
+    nav.main-nav a{display:block;padding:16px 6px;font-size:18px;border-bottom:1px solid var(--line);}
+    .nav-toggle{display:block;}
+    .logo{font-size:16px;}
+    .header-cta{padding:9px 14px;font-size:13px;}
+    .header-right{gap:10px;}
+  }
+
+  main section{padding:72px 0;}
+  .sec-alt{background:var(--bg-alt);}
+  .sec-base{background:var(--surface);}
+
+  .section-head{max-width:640px;margin:0 auto 40px;text-align:center;}
+  .eyebrow{font-size:13.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:10px;display:block;opacity:0.8;}
+  .section-head h2{font-size:clamp(26px,3.4vw,34px);color:var(--navy);margin:0 0 14px;text-wrap:balance;}
+  .section-head p{color:var(--ink-soft);font-size:17.5px;margin:0;}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:16px 32px;border-radius:100px;font-weight:600;font-size:19px;text-decoration:none;cursor:pointer;border:none;min-height:52px;font-family:var(--font);transition:background .15s ease,color .15s ease;}
+  .btn-primary{background:var(--cta);color:var(--cta-ink);}
+  .btn-primary:hover{background:var(--navy);color:#fff;}
+  .btn-secondary{background:transparent;color:var(--navy);border:1.5px solid var(--navy);}
+  .btn-secondary:hover{background:var(--navy-soft);}
+
+  /* hero */
+  .hero{padding:52px 0 64px;background:var(--bg);}
+  .hero-inner{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;}
+  @media (max-width:900px){.hero-inner{grid-template-columns:1fr;}.hero-media{order:-1;}}
+  .hero-tag{display:inline-block;background:var(--navy-soft);color:var(--navy);font-size:13.5px;font-weight:600;padding:6px 14px;border-radius:100px;margin-bottom:18px;}
+  .service-name{font-size:clamp(34px,5vw,50px);font-weight:800;color:var(--navy);line-height:1.3;margin:0 0 14px;text-wrap:balance;}
+  .hero-copy h1{font-size:clamp(20px,2.6vw,25px);font-weight:600;color:var(--ink-soft);line-height:1.6;margin:0 0 18px;text-wrap:balance;}
+  .hero-copy .lede{font-size:19px;color:var(--ink);margin-bottom:14px;}
+  .hero-copy .sub{font-size:16.5px;color:var(--ink-soft);margin-bottom:30px;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;}
+  .hero-media img{border-radius:16px;width:100%;height:auto;}
+  .hero-note{margin-top:18px;font-size:15px;color:var(--ink-soft);}
+
+  /* worries */
+  .worry-list{list-style:none;padding:0;display:grid;gap:14px;max-width:760px;margin:0 auto;}
+  .worry-list li{position:relative;padding:16px 20px 16px 46px;background:var(--surface);border:1px solid var(--line);border-radius:12px;font-size:17.5px;}
+  .worry-list li::before{content:"✓";position:absolute;left:18px;top:16px;color:var(--navy);font-weight:700;}
+
+  /* two-col (included / excluded, etc.) */
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  @media (max-width:760px){.two-col{grid-template-columns:1fr;}}
+  .col-box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:30px 28px;}
+  .col-box h3{font-size:19px;margin:0 0 18px;}
+  .col-box.included h3{color:var(--ok);}
+  .col-box.excluded h3{color:var(--error);}
+  .col-box ul{list-style:none;padding:0;display:grid;gap:14px;}
+  .col-box li{position:relative;padding-left:30px;font-size:17px;}
+  .col-box.included li::before{content:"○";position:absolute;left:0;top:0;color:var(--ok);font-weight:700;}
+  .col-box.excluded li::before{content:"×";position:absolute;left:0;top:0;color:var(--error);font-weight:700;}
+
+  /* report cards (reuse promise-card look) */
+  .promise-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
+  .promise-card{background:var(--surface);border-radius:14px;padding:24px 22px;border:1px solid var(--line);}
+  .promise-card .num{font-size:13px;color:var(--navy);font-weight:700;margin-bottom:10px;display:block;}
+  .promise-card h3{font-size:17.5px;color:var(--navy);margin:0 0 8px;}
+  .promise-card p{font-size:16.5px;color:var(--ink-soft);margin:0;}
+
+  /* flow */
+  .flow-list{counter-reset:step;display:grid;gap:20px;max-width:760px;margin:0 auto;list-style:none;padding:0;}
+  .flow-item{counter-increment:step;display:grid;grid-template-columns:52px 1fr;gap:20px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 24px;align-items:start;}
+  .flow-item .step-num{width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;}
+  .flow-item .step-num::before{content:counter(step);}
+  .flow-item h3{font-size:17.5px;color:var(--navy);margin:0 0 6px;}
+  .flow-item p{font-size:16.5px;color:var(--ink-soft);margin:0;}
+  .flow-note{text-align:center;margin-top:24px;font-size:16px;color:var(--ink-soft);}
+
+  /* price */
+  .price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:640px;margin:0 auto;}
+  .price-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;text-align:center;}
+  .price-card h3{font-size:17.5px;color:var(--navy);margin:0 0 12px;}
+  .price-card .amount{font-size:24px;font-weight:700;color:var(--ink);margin-bottom:10px;font-variant-numeric:tabular-nums;}
+  .price-card p{font-size:15.5px;color:var(--ink-soft);margin:0;}
+  .price-note{max-width:640px;margin:32px auto 0;text-align:center;background:var(--navy-soft);color:var(--navy);padding:16px 20px;border-radius:10px;font-size:16.5px;}
+
+  /* faq */
+  .faq-list{max-width:760px;margin:0 auto;display:grid;gap:12px;}
+  details.faq-item{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:2px 22px;}
+  details.faq-item summary{cursor:pointer;padding:18px 34px 18px 0;font-weight:600;color:var(--navy);font-size:17.5px;list-style:none;position:relative;}
+  details.faq-item summary::-webkit-details-marker{display:none;}
+  details.faq-item summary::after{content:"+";position:absolute;right:0;top:14px;font-size:22px;color:var(--navy);transition:transform .2s;}
+  details.faq-item[open] summary::after{transform:rotate(45deg);}
+  details.faq-item p{margin:0 0 18px;font-size:16.5px;color:var(--ink-soft);}
+
+  /* apply */
+  .apply-inner{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start;}
+  @media (max-width:900px){.apply-inner{grid-template-columns:1fr;}}
+  form.apply-form{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:32px;display:grid;gap:20px;}
+  .form-group{display:grid;gap:8px;}
+  .form-group label{font-size:16px;font-weight:600;color:var(--navy);}
+  .form-group input,.form-group select,.form-group textarea{font-family:var(--font);font-size:17px;padding:14px 16px;border:1.5px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);width:100%;}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--navy);}
+  .radio-group{display:flex;flex-wrap:wrap;gap:12px;}
+  .radio-option{display:flex;align-items:center;gap:8px;background:var(--bg);border:1.5px solid var(--line);border-radius:100px;padding:12px 18px;font-size:16px;cursor:pointer;}
+  .radio-option input{accent-color:var(--navy);width:18px;height:18px;}
+  .checkbox-row{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--ink-soft);}
+  .checkbox-row input{margin-top:3px;accent-color:var(--navy);width:18px;height:18px;flex-shrink:0;}
+  .form-status{font-size:16px;padding:14px 16px;border-radius:8px;display:none;}
+  .form-status.show{display:block;}
+  .form-status.success{background:var(--navy-soft);color:var(--navy);}
+  .form-status.error{background:var(--error-bg);color:var(--error);}
+  .apply-note{background:var(--bg-alt);border-radius:16px;padding:28px;font-size:15.5px;color:var(--ink);}
+  .apply-note h3{color:var(--navy);font-size:17px;margin:0 0 14px;}
+  .apply-note ul{padding-left:18px;margin:0;display:grid;gap:10px;}
+
+  /* cross link to main site */
+  .cross-link{text-align:center;padding:20px;background:var(--navy-soft);border-radius:14px;font-size:16px;}
+  .cross-link a{color:var(--navy);font-weight:700;text-decoration:underline;}
+
+  /* footer */
+  footer.site-footer{background:var(--navy);color:#EDEFEA;padding:52px 0 30px;}
+  footer .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;margin-bottom:32px;}
+  @media (max-width:700px){footer .footer-grid{grid-template-columns:1fr;gap:24px;}}
+  footer h3{font-size:15.5px;margin:0 0 14px;color:#fff;}
+  footer p,footer li{font-size:14.5px;color:#C8D0CE;line-height:1.8;}
+  footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;}
+  footer a{color:#C8D0CE;}
+  footer .copyright{border-top:1px solid rgba(255,255,255,0.15);padding-top:20px;font-size:13px;color:#9AA6A2;text-align:center;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo-group" href="index.html">
+      <span class="logo">Wie for Life</span>
+      <span class="logo-sub">定期見守り訪問</span>
+    </a>
+    <div class="header-right">
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="#worries">こんな心配</a></li>
+          <li><a href="#service">訪問の内容</a></li>
+          <li><a href="#flow">流れ</a></li>
+          <li><a href="#price">料金</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+      <a class="header-cta" href="#apply">見守り訪問について相談する</a>
+      <button class="nav-toggle" id="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- hero -->
+  <section class="hero" id="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="hero-tag">離れて暮らすご家族の方へ</span>
+        <p class="service-name">定期見守り訪問</p>
+        <h1>「元気にしてるかな」を、<br>月に一度、確認しに行きます。</h1>
+        <p class="lede">電話やメッセージでは分からないことを、月1回程度のご自宅訪問でお伝えします。</p>
+        <p class="sub">安否確認とあわせて、郵便物や書類がたまっていないかも確認します。気になる点があれば、その都度ご報告します。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#apply">見守り訪問について相談する</a>
+          <a class="btn btn-secondary" href="#service">訪問の内容を見る</a>
+        </div>
+        <p class="hero-note">ご本人がご自身でお申し込みいただくことも歓迎します。</p>
+      </div>
+      <div class="hero-media">
+        <img src="assets/images/mimamori-hero.png" alt="自宅の玄関先で、訪問したスタッフとシニア女性が笑顔で挨拶を交わす様子">
+      </div>
+    </div>
+  </section>
+
+  <!-- worries -->
+  <section class="sec-base" id="worries">
+    <div class="container">
+      <div class="section-head fade-in">
+        <span class="eyebrow">Worries</span>
+        <h2>こんな心配、ありませんか?</h2>
+        <p>一つでも当てはまれば、まずお話をうかがうところから始められます。</p>
+      </div>
+      <ul class="worry-list fade-in">
+        <li>実家に頻繁には帰れず、様子が分からない</li>
+        <li>電話をしても「大丈夫」としか言われない</li>
+        <li>何かあったときに、すぐ気づけるか不安</li>
+        <li>心配していると伝えると、本人の機嫌を損ねてしまう</li>
+        <li>介護保険を使うほどではない気がするが、気にはなる</li>
+        <li>郵便物や書類が、きちんと確認されているか分からない</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- service -->
+  <section class="sec-alt" id="service">
+    <div class="container">
+      <div class="section-head fade-in">
+        <span class="eyebrow">Service</span>
+        <h2>定期見守り訪問とは</h2>
+        <p>月1回程度、スタッフがご自宅にお伺いします。介護保険サービスの代わりではありません。</p>
+      </div>
+      <div class="two-col fade-in">
+        <div class="col-box included">
+          <h3>訪問で行うこと</h3>
+          <ul>
+            <li>お元気に過ごされているかの確認</li>
+            <li>郵便物や書類がたまっていないかの確認</li>
+            <li>困りごとがないかの聞き取り</li>
+            <li>訪問のたびのご家族への報告</li>
+            <li>気になる点があった場合の速やかなご連絡</li>
+          </ul>
+        </div>
+        <div class="col-box excluded">
+          <h3>訪問で行わないこと</h3>
+          <ul>
+            <li>入浴・排泄・食事などの介護</li>
+            <li>医療行為、服薬管理</li>
+            <li>ケアプランの作成、要介護認定の手続き</li>
+            <li>緊急時の駆けつけ対応の代行</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- report -->
+  <section class="sec-base" id="report">
+    <div class="container">
+      <div class="section-head fade-in">
+        <span class="eyebrow">Report</span>
+        <h2>ご報告の仕組み</h2>
+        <p>訪問した内容は、決まった形でご家族にお伝えします。</p>
+      </div>
+      <div class="promise-grid fade-in">
+        <div class="promise-card">
+          <span class="num">01</span>
+          <h3>訪問後にご報告</h3>
+          <p>訪問のたびに、様子をメールまたはお電話で簡単にご報告します。</p>
+        </div>
+        <div class="promise-card">
+          <span class="num">02</span>
+          <h3>気になる点はすぐ連絡</h3>
+          <p>体調や様子で気になることがあれば、定例報告を待たずにご連絡します。</p>
+        </div>
+        <div class="promise-card">
+          <span class="num">03</span>
+          <h3>必要な場合は専門家へ橋渡し</h3>
+          <p>介護や医療の相談が必要な場合は、地域包括支援センターなど適切な窓口をご案内します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- flow -->
+  <section class="sec-alt" id="flow">
+    <div class="container">
+      <div class="section-head fade-in">
+        <span class="eyebrow">Flow</span>
+        <h2>ご利用開始までの流れ</h2>
+        <p>ご本人・ご家族どちらからのお申し込みも承っています。</p>
+      </div>
+      <ol class="flow-list fade-in">
+        <li class="flow-item">
+          <span class="step-num" aria-hidden="true"></span>
+          <div>
+            <h3>お申し込み</h3>
+            <p>フォームまたはお電話で、ご相談ください。</p>
+          </div>
+        </li>
+        <li class="flow-item">
+          <span class="step-num" aria-hidden="true"></span>
+          <div>
+            <h3>ヒアリング</h3>
+            <p>ご本人の暮らしぶりや、気になっている点をうかがいます。ご本人が同席しない形でのご相談も可能です。</p>
+          </div>
+        </li>
+        <li class="flow-item">
+          <span class="step-num" aria-hidden="true"></span>
+          <div>
+            <h3>初回訪問</h3>
+            <p>スタッフがご挨拶を兼ねて、初めての訪問にお伺いします。</p>
+          </div>
+        </li>
+        <li class="flow-item">
+          <span class="step-num" aria-hidden="true"></span>
+          <div>
+            <h3>定期訪問・ご報告の開始</h3>
+            <p>以降は月1回程度の訪問と、そのつどのご報告を続けます。</p>
+          </div>
+        </li>
+      </ol>
+      <p class="flow-note">頻度や内容は、開始後も状況に応じてご相談いただけます。</p>
+    </div>
+  </section>
+
+  <!-- price -->
+  <section class="sec-base" id="price">
+    <div class="container">
+      <div class="section-head fade-in">
+        <span class="eyebrow">Price</span>
+        <h2>料金について</h2>
+      </div>
+      <div class="price-grid fade-in">
+        <div class="price-card">
+          <h3>定期見守り訪問</h3>
+          <div class="amount">現在確認中です</div>
+          <p>頻度・内容はご相談のうえ決定します</p>
+        </div>
+      </div>
+      <p class="price-note">「相談してみたら高額な契約を勧められた」ということがないよう、料金は必ず事前にお伝えします。</p>
+    </div>
+  </section>
+
+  <!-- faq -->
+  <section class="sec-alt" id="faq">
+    <div class="container">
+      <div class="section-head fade-in">
+        <span class="eyebrow">FAQ</span>
+        <h2>よくある質問</h2>
+      </div>
+      <div class="faq-list fade-in">
+        <details class="faq-item">
+          <summary>見守り訪問は、介護保険サービスの代わりになりますか?</summary>
+          <p>いいえ、介護保険サービスではありません。安否確認と、郵便物・書類の様子確認を中心とした見守りです。介護に関するご相談が必要な場合は、地域包括支援センターなど適切な窓口をご案内します。</p>
+        </details>
+        <details class="faq-item">
+          <summary>訪問の頻度は選べますか?</summary>
+          <p>はい。まずは月1回程度を目安にご案内していますが、頻度はご相談のうえ決定します。</p>
+        </details>
+        <details class="faq-item">
+          <summary>本人が訪問を嫌がったら、どうなりますか?</summary>
+          <p>ご本人の意思を尊重します。まずはご家族からのご相談として、どのようにお伝えするかを一緒に考えることもできます。</p>
+        </details>
+        <details class="faq-item">
+          <summary>訪問中に体調の異変があった場合は、どうなりますか?</summary>
+          <p>その場で気づいた範囲でご家族にご連絡します。緊急時の駆けつけ対応や医療的な処置を代行するサービスではないため、必要に応じて救急要請や医療機関への連絡をご家族・ご本人にお願いする場合があります。</p>
+        </details>
+        <details class="faq-item">
+          <summary>ご本人が自分で申し込むこともできますか?</summary>
+          <p>はい。ご本人からのお申し込みも歓迎しています。ご家族に知らせるかどうかも、ご本人の意向に沿って進めます。</p>
+        </details>
+        <details class="faq-item">
+          <summary>訪問した内容は、どのように報告してもらえますか?</summary>
+          <p>訪問のたびに、メールまたはお電話で簡単にご報告します。気になる点があれば、定例のご報告を待たずにご連絡します。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- apply -->
+  <section class="sec-base" id="apply">
+    <div class="container">
+      <div class="section-head fade-in">
+        <span class="eyebrow">Apply</span>
+        <h2>まずは気軽にご相談ください</h2>
+        <p>売り込みを目的としたご案内はいたしません。</p>
+      </div>
+      <div class="apply-inner fade-in">
+        <form class="apply-form" id="apply-form" novalidate>
+          <div class="form-group">
+            <label for="applicant-name">お名前<span aria-hidden="true"> *</span></label>
+            <input type="text" id="applicant-name" name="applicant-name" required autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label id="applicant-relation-label">ご本人との関係<span aria-hidden="true"> *</span></label>
+            <div class="radio-group" role="group" aria-labelledby="applicant-relation-label">
+              <label class="radio-option"><input type="radio" name="applicant-relation" value="ご本人として申し込む" required>ご本人として申し込む</label>
+              <label class="radio-option"><input type="radio" name="applicant-relation" value="ご家族として申し込む">ご家族として申し込む</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="applicant-contact">ご連絡先(電話番号またはメールアドレス)<span aria-hidden="true"> *</span></label>
+            <input type="text" id="applicant-contact" name="applicant-contact" required autocomplete="tel">
+          </div>
+
+          <div class="form-group">
+            <label for="target-area">訪問先のお住まい(市区町村)</label>
+            <input type="text" id="target-area" name="target-area" placeholder="例: 札幌市〇〇区">
+          </div>
+
+          <div class="form-group">
+            <label for="applicant-message">気になっていること(任意)</label>
+            <textarea id="applicant-message" name="applicant-message" rows="4" placeholder="頻度のご希望や、今気になっていることなど"></textarea>
+          </div>
+
+          <label class="checkbox-row">
+            <input type="checkbox" name="privacy" required>
+            <span>入力内容の取り扱いについて確認し、同意します。</span>
+          </label>
+
+          <button type="submit" class="btn btn-primary">この内容で申し込む</button>
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+        </form>
+
+        <div class="apply-note">
+          <h3>お申し込み前に</h3>
+          <ul>
+            <li>ご相談は、契約や商品のご提案を目的としたものではありません。</li>
+            <li>ご本人・ご家族、どちらからのお申し込みも承っています。</li>
+            <li>料金が発生する場合は、事前に必ずご説明します。</li>
+            <li>介護保険サービスではありません。介護に関するご相談は、適切な窓口をご案内します。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cross-link fade-in" style="margin-top:40px;">
+        暮らしとお金の整理相談や、片付け・ハンドケアなど、他のサービスも含めた<br>
+        <a href="services.html">Wie for Life の「くらしの楽しみと安心サポート」はこちら</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3>Wie for Life について</h3>
+        <p>[事業者名]<br>[住所]<br>電話: [電話番号]<br>税理士登録番号: [登録番号]</p>
+      </div>
+      <div>
+        <h3>サイト内リンク</h3>
+        <ul>
+          <li><a href="services.html">くらしの楽しみと安心サポート</a></li>
+          <li><a href="index.html">Wie for Life トップ</a></li>
+          <li><a href="#service">見守り訪問の内容</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>その他</h3>
+        <ul>
+          <li><a href="#">プライバシーポリシー</a></li>
+          <li><a href="#">特定商取引法に基づく表記</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2026 Wie for Life</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var navToggle = document.getElementById('nav-toggle');
+  var mainNav = document.getElementById('main-nav');
+  if(navToggle && mainNav){
+    navToggle.addEventListener('click', function(){
+      var isOpen = mainNav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    mainNav.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        mainNav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fadeEls = document.querySelectorAll('.fade-in');
+  if(reduceMotion || !('IntersectionObserver' in window)){
+    fadeEls.forEach(function(el){ el.classList.add('is-visible'); });
+  } else {
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    fadeEls.forEach(function(el){ observer.observe(el); });
+  }
+
+  var form = document.getElementById('apply-form');
+  var status = document.getElementById('form-status');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      var valid = true;
+      form.querySelectorAll('[required]').forEach(function(field){
+        if(field.type === 'checkbox'){
+          if(!field.checked){ valid = false; }
+        } else if(field.type !== 'radio' && !field.value.trim()){
+          valid = false;
+        }
+      });
+      if(!form.querySelector('input[name="applicant-relation"]:checked')){ valid = false; }
+
+      if(!valid){
+        status.textContent = 'ご入力内容をご確認ください。必須項目が入力されていません。';
+        status.className = 'form-status show error';
+        status.focus && status.focus();
+        return;
+      }
+
+      var data = new FormData(form);
+      var payload = {};
+      data.forEach(function(value, key){ payload[key] = value; });
+      console.log('見守り訪問 申込フォーム送信内容(ダミー):', payload);
+      // TODO: 送信先エンドポイントを実装後に接続
+
+      status.textContent = '送信内容を確認しました。担当より折り返しご連絡いたします。';
+      status.className = 'form-status show success';
+      form.reset();
+    });
+  }
+})();
+</script>
+</body>
+</html>

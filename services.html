@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wie for Life｜くらしの楽しみと安心サポート</title>
+<meta name="description" content="見守り訪問、くらしとお金の整理相談、整理収納、ハンドケア、フットケア、イベント・サークルまで。女性を中心としたサービスを、シニアの毎日に。Wie for Lifeの、くらしの楽しみと安心サポートです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBF6EA;
+    --bg-alt:#F5E7BE;
+    --surface:#FFFFFF;
+    --navy:#1F3A5C;
+    --navy-soft:#E7ECF1;
+    --ink:#322C22;
+    --ink-soft:#6B6152;
+    --cta:#E8899B;
+    --cta-ink:#1F3A5C;
+    --line:#E6DFC9;
+    --error:#A14A3D;
+    --error-bg:#F5E9E6;
+    --ok:#3F7A5C;
+    --ok-bg:#E9F1EB;
+    --soon:#9A8F5C;
+    --soon-bg:#F1ECDD;
+    --font:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --container:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.85;font-size:18px;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+  a{color:var(--navy);}
+  h1,h2,h3{font-family:var(--font);font-weight:700;margin:0;}
+  p{margin:0 0 1em;}
+  ul{margin:0;}
+  .container{max-width:var(--container);margin:0 auto;padding:0 24px;}
+
+  .skip-link{position:absolute;left:-999px;top:0;background:var(--navy);color:#fff;padding:12px 20px;z-index:300;border-radius:0 0 8px 0;text-decoration:none;font-size:14px;}
+  .skip-link:focus{left:0;}
+  :focus-visible{outline:3px solid var(--navy);outline-offset:2px;}
+
+  .fade-in{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+  .fade-in.is-visible{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .fade-in{opacity:1;transform:none;transition:none;}
+  }
+
+  /* header */
+  header.site-header{position:sticky;top:0;z-index:100;background:rgba(251,246,234,0.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;max-width:var(--container);margin:0 auto;}
+  .logo-group{display:flex;flex-direction:column;line-height:1.3;text-decoration:none;}
+  .logo{font-weight:700;font-size:19px;color:var(--navy);text-decoration:none;letter-spacing:0.02em;white-space:nowrap;}
+  .logo-sub{font-size:12.5px;color:var(--ink-soft);}
+  .header-right{display:flex;align-items:center;gap:16px;}
+  nav.main-nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:18px;margin:0;padding:0;}
+  nav.main-nav a{text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;}
+  nav.main-nav a:hover{color:var(--navy);}
+  .header-cta{background:var(--cta);color:var(--cta-ink);padding:12px 24px;border-radius:100px;text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap;min-height:48px;display:inline-flex;align-items:center;transition:background .15s ease,color .15s ease;}
+  .header-cta:hover{background:var(--navy);color:#fff;}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:10px;}
+  .nav-toggle span{display:block;width:24px;height:2px;background:var(--navy);margin:5px 0;}
+
+  @media (max-width:900px){
+    nav.main-nav{position:fixed;top:64px;left:0;right:0;height:calc(100vh - 64px);background:var(--bg);padding:24px;transform:translateY(-110%);transition:transform .25s ease;overflow-y:auto;pointer-events:none;}
+    nav.main-nav.open{transform:translateY(0);pointer-events:auto;}
+    nav.main-nav ul{flex-direction:column;gap:2px;}
+    nav.main-nav a{display:block;padding:16px 6px;font-size:18px;border-bottom:1px solid var(--line);}
+    .nav-toggle{display:block;}
+    .logo{font-size:16px;}
+    .header-cta{padding:9px 14px;font-size:13px;}
+    .header-right{gap:10px;}
+  }
+
+  main section{padding:72px 0;}
+  .sec-alt{background:var(--bg-alt);}
+  .sec-base{background:var(--surface);}
+
+  .section-head{max-width:640px;margin:0 auto 40px;text-align:center;}
+  .eyebrow{font-size:13.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:10px;display:block;opacity:0.8;}
+  .section-head h2{font-size:clamp(26px,3.4vw,34px);color:var(--navy);margin:0 0 14px;text-wrap:balance;}
+  .section-head p{color:var(--ink-soft);font-size:17.5px;margin:0;}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:16px 32px;border-radius:100px;font-weight:600;font-size:19px;text-decoration:none;cursor:pointer;border:none;min-height:52px;font-family:var(--font);transition:background .15s ease,color .15s ease;}
+  .btn-primary{background:var(--cta);color:var(--cta-ink);}
+  .btn-primary:hover{background:var(--navy);color:#fff;}
+  .btn-secondary{background:transparent;color:var(--navy);border:1.5px solid var(--navy);}
+  .btn-secondary:hover{background:var(--navy-soft);}
+  .btn-small{padding:10px 20px;font-size:15px;min-height:auto;}
+
+  /* hero */
+  .hero{padding:52px 0 64px;background:var(--bg);}
+  .hero-inner{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;}
+  @media (max-width:900px){.hero-inner{grid-template-columns:1fr;}.hero-media{order:-1;}}
+  .hero-tag{display:inline-block;background:var(--navy-soft);color:var(--navy);font-size:13.5px;font-weight:600;padding:6px 14px;border-radius:100px;margin-bottom:18px;}
+  .service-name{font-size:clamp(30px,4.6vw,44px);font-weight:800;color:var(--navy);line-height:1.3;margin:0 0 14px;text-wrap:balance;}
+  .hero-copy h1{font-size:clamp(20px,2.6vw,25px);font-weight:600;color:var(--ink-soft);line-height:1.6;margin:0 0 18px;text-wrap:balance;}
+  .hero-copy .sub{font-size:17px;color:var(--ink-soft);margin:0 0 30px;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;}
+  .hero-media img{border-radius:16px;width:100%;height:auto;}
+
+  /* wishes (worries, but framed positively) */
+  .wish-list{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:900px;margin:0 auto;}
+  .wish-list li{position:relative;padding:16px 20px 16px 46px;background:var(--surface);border:1px solid var(--line);border-radius:12px;font-size:17px;}
+  .wish-list li::before{content:"✓";position:absolute;left:18px;top:16px;color:var(--navy);font-weight:700;}
+
+  /* concept */
+  .concept-lede{max-width:720px;margin:0 auto 20px;font-size:18.5px;text-align:center;}
+  .concept-story{max-width:720px;margin:0 auto 0;background:var(--surface);border-left:4px solid var(--navy);padding:22px 26px;border-radius:6px;font-size:17px;color:var(--ink-soft);}
+
+  /* catalog */
+  .catalog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
+  .catalog-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:12px;}
+  .catalog-card h3{font-size:19px;color:var(--navy);margin:0;}
+  .catalog-card p{font-size:16px;color:var(--ink-soft);margin:0;flex-grow:1;}
+  .status-tag{display:inline-block;font-size:13px;font-weight:700;padding:5px 12px;border-radius:100px;width:fit-content;}
+  .status-tag.ready{background:var(--ok-bg);color:var(--ok);}
+  .status-tag.soon{background:var(--soon-bg);color:var(--soon);}
+  .catalog-card .card-action{margin-top:6px;}
+
+  /* events */
+  .event-photo{border-radius:16px;overflow:hidden;max-width:640px;margin:0 auto 36px;border:1px solid var(--line);}
+  .event-photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;}
+  .event-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+  .event-card{background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:22px;text-align:center;}
+  .event-card h3{font-size:17px;color:var(--navy);margin:0 0 8px;}
+  .event-card p{font-size:15px;color:var(--ink-soft);margin:0;}
+  .event-note{text-align:center;margin-top:24px;font-size:16px;color:var(--ink-soft);}
+
+  /* entrepreneur note */
+  .entre-note{max-width:760px;margin:0 auto;background:var(--navy-soft);border-radius:16px;padding:28px 30px;}
+  .entre-note h3{font-size:18px;color:var(--navy);margin:0 0 10px;}
+  .entre-note p{font-size:16.5px;color:var(--ink);margin:0 0 10px;}
+  .entre-note p:last-child{margin-bottom:0;}
+
+  /* inquiry form */
+  .apply-inner{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start;}
+  @media (max-width:900px){.apply-inner{grid-template-columns:1fr;}}
+  form.apply-form{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:32px;display:grid;gap:20px;}
+  .form-group{display:grid;gap:8px;}
+  .form-group label{font-size:16px;font-weight:600;color:var(--navy);}
+  .form-group input,.form-group select,.form-group textarea{font-family:var(--font);font-size:17px;padding:14px 16px;border:1.5px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);width:100%;}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--navy);}
+  .checkbox-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;}
+  .checkbox-option{display:flex;align-items:center;gap:8px;background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;font-size:15.5px;cursor:pointer;}
+  .checkbox-option input{accent-color:var(--navy);width:18px;height:18px;flex-shrink:0;}
+  .checkbox-row{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--ink-soft);}
+  .checkbox-row input{margin-top:3px;accent-color:var(--navy);width:18px;height:18px;flex-shrink:0;}
+  .form-status{font-size:16px;padding:14px 16px;border-radius:8px;display:none;}
+  .form-status.show{display:block;}
+  .form-status.success{background:var(--navy-soft);color:var(--navy);}
+  .form-status.error{background:var(--error-bg);color:var(--error);}
+  .apply-note{background:var(--bg-alt);border-radius:16px;padding:28px;font-size:15.5px;color:var(--ink);}
+  .apply-note h3{color:var(--navy);font-size:17px;margin:0 0 14px;}
+  .apply-note ul{padding-left:18px;margin:0;display:grid;gap:10px;}
+
+  /* footer */
+  footer.site-footer{background:var(--navy);color:#EDEFEA;padding:52px 0 30px;}
+  footer .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;margin-bottom:32px;}
+  @media (max-width:700px){footer .footer-grid{grid-template-columns:1fr;gap:24px;}}
+  footer h3{font-size:15.5px;margin:0 0 14px;color:#fff;}
+  footer p,footer li{font-size:14.5px;color:#C8D0CE;line-height:1.8;}
+  footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;}
+  footer a{color:#C8D0CE;}
+  footer .copyright{border-top:1px solid rgba(255,255,255,0.15);padding-top:20px;font-size:13px;color:#9AA6A2;text-align:center;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo-group" href="index.html">
+      <span class="logo">Wie for Life</span>
+      <span class="logo-sub">楽しみと安心のサポート</span>
+    </a>
+    <div class="header-right">
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="#wishes">こんな毎日に</a></li>
+          <li><a href="#catalog">サービス一覧</a></li>
+          <li><a href="#events">イベント・サークル</a></li>
+          <li><a href="#concept">このサポートについて</a></li>
+        </ul>
+      </nav>
+      <a class="header-cta" href="#inquiry">気になるサービスを相談する</a>
+      <button class="nav-toggle" id="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- hero -->
+  <section class="hero" id="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="hero-tag">シニアの毎日を、もっと楽しく、もっと安心に。</span>
+        <p class="service-name">くらしの楽しみと安心サポート</p>
+        <h1>老後を、我慢する時間にしない。</h1>
+        <p class="sub">見守りやお金の整理だけでなく、暮らしを楽しくするサービスも。女性を中心としたサービス提供者の皆さんと一緒に、シニアの毎日にお届けします。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#catalog">サービス一覧を見る</a>
+          <a class="btn btn-secondary" href="#inquiry">気になるサービスを相談する</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="assets/images/services-hero.png" alt="明るいリビングで、お茶を飲みながら楽しそうに談笑するシニア女性たち">
+      </div>
+    </div>
+  </section>
+
+  <!-- wishes -->
+  <section class="sec-base" id="wishes">
+    <div class="container">
+      <div class="section-head fade-in">
+        <span class="eyebrow">Wishes</span>
+        <h2>こんな毎日、過ごしてみませんか?</h2>
+        <p>不安を減らすことだけでなく、楽しみを増やすことも。どちらも大切にしています。</p>
+      </div>
+      <ul class="wish-list fade-in">
+        <li>毎日をもっと楽しみたいが、きっかけがない</li>
+        <li>体のケアはしたいが、大きな病院に行くほどではない</li>
+        <li>お部屋の片付けが、少しずつ億劫になってきた</li>
+        <li>新しい出会いや、気軽な会話の機会がほしい</li>
+        <li>お金や書類の心配を、少しでも減らしたい</li>
+        <li>家族に頼りきりにならず、自分らしく過ごしたい</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- catalog -->
+  <section class="sec-alt" id="catalog">
+    <div class="container">
+      <div class="section-head fade-in">
+        <span class="eyebrow">Catalog</span>
+        <h2>サービス一覧</h2>
+        <p>ご案内中のサービスと、これから拡充していくサービスです。</p>
+      </div>
+      <div class="catalog-grid fade-in">
+        <div class="catalog-card">
+          <span class="status-tag ready">ご案内中</span>
+          <h3>定期見守り訪問</h3>
+          <p>月1回程度のご自宅訪問で、安否確認と郵便物・書類の様子を確認します。</p>
+          <a class="btn btn-secondary btn-small card-action" href="mimamori.html">詳しく見る</a>
+        </div>
+        <div class="catalog-card">
+          <span class="status-tag ready">ご案内中</span>
+          <h3>くらしとお金の整理相談</h3>
+          <p>税金、保険、年金、相続、エンディングノート。気になることをまとめて整理します。</p>
+          <a class="btn btn-secondary btn-small card-action" href="index.html">詳しく見る</a>
+        </div>
+        <div class="catalog-card">
+          <span class="status-tag soon">準備中</span>
+          <h3>整理収納アドバイザーによる片付けサポート</h3>
+          <p>お部屋や持ち物の片付けを、無理のないペースで一緒に進めます。整理収納アドバイザーが担当予定です。</p>
+          <a class="btn btn-secondary btn-small card-action" href="#inquiry">気になる方はこちら</a>
+        </div>
+        <div class="catalog-card">
+          <span class="status-tag soon">準備中</span>
+          <h3>ハンドケア</h3>
+          <p>手肌のお手入れや爪のケアで、気持ちも一緒に整える時間を。専門の担当者が対応予定です。</p>
+          <a class="btn btn-secondary btn-small card-action" href="#inquiry">気になる方はこちら</a>
+        </div>
+        <div class="catalog-card">
+          <span class="status-tag soon">準備中</span>
+          <h3>フットケア</h3>
+          <p>足のむくみや爪のお手入れなど、歩く毎日を支えるケアです。専門の担当者が対応予定です。</p>
+          <a class="btn btn-secondary btn-small card-action" href="#inquiry">気になる方はこちら</a>
+        </div>
+        <div class="catalog-card">
+          <span class="status-tag soon">準備中</span>
+          <h3>イベント・サークル</h3>
+          <p>お茶会や趣味の集まりなど、気軽に参加できる場を企画しています。詳細は下のセクションをご覧ください。</p>
+          <a class="btn btn-secondary btn-small card-action" href="#events">詳しく見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- events -->
+  <section class="sec-base" id="events">
+    <div class="container">
+      <div class="section-head fade-in">
+        <span class="eyebrow">Events</span>
+        <h2>イベント・サークル</h2>
+        <p>現在企画中です。決まり次第、こちらでご案内します。</p>
+      </div>
+      <figure class="event-photo fade-in">
+        <img src="assets/images/services-events.png" alt="手芸サークルで、笑顔で会話しながら手を動かして楽しむシニア女性たち">
+      </figure>
+      <div class="event-grid fade-in">
+        <div class="event-card">
+          <h3>お茶会・交流会</h3>
+          <p>気軽におしゃべりできる集まりを予定しています。</p>
+        </div>
+        <div class="event-card">
+          <h3>手芸・趣味のサークル</h3>
+          <p>好きなことを、同じ興味を持つ人と一緒に。</p>
+        </div>
+        <div class="event-card">
+          <h3>暮らしの学び講座</h3>
+          <p>お金や暮らしに関する、気軽に参加できる講座を予定しています。</p>
+        </div>
+      </div>
+      <p class="event-note fade-in">「こんな集まりがあったら」というご希望も、下記フォームからお寄せください。</p>
+    </div>
+  </section>
+
+  <!-- concept -->
+  <section class="sec-alt" id="concept">
+    <div class="container">
+      <div class="section-head fade-in">
+        <span class="eyebrow">Concept</span>
+        <h2>このサポートについて</h2>
+      </div>
+      <p class="concept-lede fade-in">Wie for Lifeは、税務相談をきっかけに生まれました。相談の中で、お金のことだけでなく、暮らし全体をもっと楽しく、安心して過ごしたいという声を多くいただいてきました。</p>
+      <div class="concept-story fade-in">
+        くらしの楽しみと安心サポートは、様々な分野で活動する、女性を中心としたサービス提供者の皆さんとつながり、シニアの暮らしに合った形でサービスをご紹介する取り組みです。すべてのサービスの結果を保証するものではありませんが、実際にお話をうかがった担当者を、責任を持ってご紹介します。
+      </div>
+      <div class="entre-note fade-in" style="margin-top:32px;">
+        <h3>サービス提供をご検討の方へ</h3>
+        <p>このページでのサービス掲載にご興味のある方も、下記フォームからお問い合わせいただけます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- inquiry -->
+  <section class="sec-base" id="inquiry">
+    <div class="container">
+      <div class="section-head fade-in">
+        <span class="eyebrow">Inquiry</span>
+        <h2>気になるサービスをお聞かせください</h2>
+        <p>売り込みを目的としたご案内はいたしません。準備中のサービスも、ご希望があればお声がけください。</p>
+      </div>
+      <div class="apply-inner fade-in">
+        <form class="apply-form" id="inquiry-form" novalidate>
+          <div class="form-group">
+            <label for="applicant-name">お名前<span aria-hidden="true"> *</span></label>
+            <input type="text" id="applicant-name" name="applicant-name" required autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label for="applicant-contact">ご連絡先(電話番号またはメールアドレス)<span aria-hidden="true"> *</span></label>
+            <input type="text" id="applicant-contact" name="applicant-contact" required autocomplete="tel">
+          </div>
+
+          <div class="form-group">
+            <label id="interest-label">気になるサービス(複数選択可)</label>
+            <div class="checkbox-grid" role="group" aria-labelledby="interest-label">
+              <label class="checkbox-option"><input type="checkbox" name="interest" value="定期見守り訪問">定期見守り訪問</label>
+              <label class="checkbox-option"><input type="checkbox" name="interest" value="くらしとお金の整理相談">くらしとお金の整理相談</label>
+              <label class="checkbox-option"><input type="checkbox" name="interest" value="整理収納アドバイザー">整理収納アドバイザー</label>
+              <label class="checkbox-option"><input type="checkbox" name="interest" value="ハンドケア">ハンドケア</label>
+              <label class="checkbox-option"><input type="checkbox" name="interest" value="フットケア">フットケア</label>
+              <label class="checkbox-option"><input type="checkbox" name="interest" value="イベント・サークル">イベント・サークル</label>
+              <label class="checkbox-option"><input type="checkbox" name="interest" value="サービス掲載について(サービス提供者の方)">サービス掲載について(サービス提供者の方)</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="applicant-message">ご希望やご質問(任意)</label>
+            <textarea id="applicant-message" name="applicant-message" rows="4" placeholder="まだ漠然としている内容でも構いません"></textarea>
+          </div>
+
+          <label class="checkbox-row">
+            <input type="checkbox" name="privacy" required>
+            <span>入力内容の取り扱いについて確認し、同意します。</span>
+          </label>
+
+          <button type="submit" class="btn btn-primary">この内容で送信する</button>
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+        </form>
+
+        <div class="apply-note">
+          <h3>お問い合わせ前に</h3>
+          <ul>
+            <li>準備中のサービスは、内容や開始時期が変わる場合があります。</li>
+            <li>ご希望に添えない場合もございますので、あらかじめご了承ください。</li>
+            <li>料金が発生する場合は、事前に必ずご説明します。</li>
+            <li>売り込みを目的としたご案内はいたしません。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3>Wie for Life について</h3>
+        <p>[事業者名]<br>[住所]<br>電話: [電話番号]<br>税理士登録番号: [登録番号]</p>
+      </div>
+      <div>
+        <h3>サイト内リンク</h3>
+        <ul>
+          <li><a href="index.html">くらしとお金の整理相談</a></li>
+          <li><a href="mimamori.html">定期見守り訪問</a></li>
+          <li><a href="services.html">くらしの楽しみと安心サポート</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>その他</h3>
+        <ul>
+          <li><a href="#">プライバシーポリシー</a></li>
+          <li><a href="#">特定商取引法に基づく表記</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2026 Wie for Life</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var navToggle = document.getElementById('nav-toggle');
+  var mainNav = document.getElementById('main-nav');
+  if(navToggle && mainNav){
+    navToggle.addEventListener('click', function(){
+      var isOpen = mainNav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    mainNav.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        mainNav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fadeEls = document.querySelectorAll('.fade-in');
+  if(reduceMotion || !('IntersectionObserver' in window)){
+    fadeEls.forEach(function(el){ el.classList.add('is-visible'); });
+  } else {
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    fadeEls.forEach(function(el){ observer.observe(el); });
+  }
+
+  var form = document.getElementById('inquiry-form');
+  var status = document.getElementById('form-status');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      var valid = true;
+      form.querySelectorAll('[required]').forEach(function(field){
+        if(field.type === 'checkbox'){
+          if(!field.checked){ valid = false; }
+        } else if(!field.value.trim()){
+          valid = false;
+        }
+      });
+
+      if(!valid){
+        status.textContent = 'ご入力内容をご確認ください。必須項目が入力されていません。';
+        status.className = 'form-status show error';
+        status.focus && status.focus();
+        return;
+      }
+
+      var data = new FormData(form);
+      var payload = {};
+      data.forEach(function(value, key){
+        if(payload[key]){
+          payload[key] = [].concat(payload[key], value);
+        } else {
+          payload[key] = value;
+        }
+      });
+      console.log('くらしの楽しみと安心サポート お問い合わせ送信内容(ダミー):', payload);
+      // TODO: 送信先エンドポイントを実装後に接続
+
+      status.textContent = '送信内容を確認しました。担当より折り返しご連絡いたします。';
+      status.className = 'form-status show success';
+      form.reset();
+    });
+  }
+})();
+</script>
+</body>
+</html>
