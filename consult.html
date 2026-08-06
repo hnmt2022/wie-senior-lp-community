@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>私たちについて｜Wie for Life</title>
-<meta name="description" content="Wie for Lifeが大切にしていること。つながりが新しい価値を生む、多様な力をくらしや社会に活かす、お金の知識も知っている人とのつながりも自分を守る力になる。一つのサービスではなく、市民活動です。">
+<title>Wie for Life｜ご相談内容</title>
+<meta name="description" content="くらしとお金の整理相談、整理収納・ハンドケア・フットケアなどのくらしを充実させるサポート。Wie for Lifeでご相談いただける内容のご案内です。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -85,27 +85,22 @@
   .btn-secondary{background:transparent;color:var(--navy);border:1.5px solid var(--navy);}
   .btn-secondary:hover{background:var(--navy-soft);}
 
-  /* mission hero */
-  .mission-hero{padding:56px 0 40px;background:var(--bg);text-align:center;}
-  .mission-hero .eyebrow2{display:inline-block;background:var(--navy-soft);color:var(--navy);font-size:13.5px;font-weight:600;padding:6px 14px;border-radius:100px;margin-bottom:18px;}
-  .mission-hero h1{font-size:clamp(28px,4vw,38px);color:var(--navy);line-height:1.5;max-width:760px;margin:0 auto;text-wrap:balance;}
+  /* hero */
+  .hero{padding:52px 0 48px;background:var(--bg);text-align:center;}
+  .hero .eyebrow2{display:inline-block;background:var(--navy-soft);color:var(--navy);font-size:13.5px;font-weight:600;padding:6px 14px;border-radius:100px;margin-bottom:18px;}
+  .service-name{font-size:clamp(30px,4.6vw,42px);font-weight:800;color:var(--navy);line-height:1.3;max-width:760px;margin:0 auto 14px;text-wrap:balance;}
+  .hero h1{font-size:clamp(20px,2.6vw,25px);font-weight:600;color:var(--ink-soft);line-height:1.6;max-width:640px;margin:0 auto 18px;text-wrap:balance;}
+  .hero .sub{font-size:17px;color:var(--ink-soft);max-width:620px;margin:0 auto;}
 
-  /* pillars */
-  .pillar-list{display:grid;gap:24px;max-width:820px;margin:0 auto;}
-  .pillar-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:32px 30px;}
-  .pillar-card .pillar-num{display:inline-block;font-size:13px;color:var(--navy);font-weight:700;letter-spacing:0.08em;margin-bottom:10px;}
-  .pillar-card h2{font-size:22px;color:var(--navy);line-height:1.5;margin:0 0 14px;text-wrap:balance;}
-  .pillar-card p{font-size:17px;color:var(--ink);margin:0;}
-
-  /* closing */
-  .closing{max-width:720px;margin:0 auto;text-align:center;background:var(--navy-soft);border-radius:16px;padding:32px 30px;}
-  .closing p{font-size:18px;color:var(--navy);margin:0;line-height:1.9;}
-
-  /* link cards to services */
-  .link-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;max-width:900px;margin:0 auto;}
-  .link-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;text-align:center;text-decoration:none;display:block;}
-  .link-card h3{font-size:17.5px;color:var(--navy);margin:0 0 8px;}
-  .link-card p{font-size:15px;color:var(--ink-soft);margin:0;}
+  /* consult cards */
+  .consult-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px;margin:0 auto;}
+  @media (max-width:760px){.consult-grid{grid-template-columns:1fr;}}
+  .consult-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:32px 28px;display:flex;flex-direction:column;}
+  .consult-card h2{font-size:21px;color:var(--navy);margin:0 0 12px;}
+  .consult-card p{font-size:16px;color:var(--ink-soft);margin:0 0 20px;flex-grow:1;}
+  .consult-card ul{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:8px;}
+  .consult-card li{font-size:15px;color:var(--ink-soft);padding-left:1.2em;position:relative;}
+  .consult-card li::before{content:"・";position:absolute;left:0;}
 
   /* footer */
   footer.site-footer{background:var(--navy);color:#EDEFEA;padding:52px 0 30px;}
@@ -125,7 +120,7 @@
   <div class="header-inner">
     <a class="logo-group" href="index.html">
       <span class="logo">Wie for Life</span>
-      <span class="logo-sub">私たちについて</span>
+      <span class="logo-sub">ご相談内容</span>
     </a>
     <div class="header-right">
       <nav class="main-nav" id="main-nav">
@@ -136,7 +131,7 @@
           <li><a href="events.html">集まりの場</a></li>
         </ul>
       </nav>
-      <a class="header-cta" href="index.html">はじめる</a>
+      <a class="header-cta" href="#options">相談する</a>
       <button class="nav-toggle" id="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="メニューを開く">
         <span></span><span></span><span></span>
       </button>
@@ -146,70 +141,41 @@
 
 <main id="main">
 
-  <!-- mission hero -->
-  <section class="mission-hero">
+  <!-- hero -->
+  <section class="hero" id="hero">
     <div class="container">
-      <span class="eyebrow2">私たちについて</span>
-      <h1>私たちが大切にしていること</h1>
+      <span class="eyebrow2">ご相談内容</span>
+      <p class="service-name">くらしのご相談</p>
+      <h1>お金のことから、ちょっとしたことまで。</h1>
+      <p class="sub">見守り以外にも、こんなご相談をお受けしています。</p>
     </div>
   </section>
 
-  <!-- pillars -->
-  <section class="sec-base">
+  <!-- consult -->
+  <section class="sec-base" id="options">
     <div class="container">
-      <div class="pillar-list fade-in">
-        <div class="pillar-card">
-          <span class="pillar-num">01</span>
-          <h2>つながりが、新しい価値を生む。</h2>
-          <p>一人の力は小さくても、人と人がつながることで、思いがけない力が生まれます。困りごとも、得意なことも、分かち合える関係を大切にしています。</p>
-        </div>
-        <div class="pillar-card">
-          <span class="pillar-num">02</span>
-          <h2>多様な力を、くらしや社会に活かす。</h2>
-          <p>自分でも気づいていない力を持つ人は、たくさんいます。今の社会の仕組みに合わないというだけで、その力を発揮できずにいる人も少なくありません。そうした一人ひとりの力を活かせる仕組みを、私たちはつくっていきます。</p>
-        </div>
-        <div class="pillar-card">
-          <span class="pillar-num">03</span>
-          <h2>お金の知識も、知っている人とのつながりも、自分を守る力になる。</h2>
-          <p>お金の知識は、自分や周りの人を守ります。もちろん、自分で知っておくことも大切です。だけど、すべてを一人で抱え込む必要はありません。税金や制度にくわしい人とつながっていることも、これからの暮らしを守る力になります。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- closing -->
-  <section class="sec-alt">
-    <div class="container">
-      <div class="closing fade-in">
-        <p>Wie for Lifeは、一つのサービスではなく、こうしたつながりを少しずつ積み重ねていく、市民活動です。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- links -->
-  <section class="sec-base">
-    <div class="container">
-      <div class="section-head fade-in">
-        <span class="eyebrow">Activities</span>
-        <h2>この考え方から生まれている取り組み</h2>
-      </div>
-      <div class="link-grid fade-in">
-        <a class="link-card" href="money-consult.html">
-          <h3>くらしとお金の整理相談</h3>
+      <div class="consult-grid fade-in">
+        <div class="consult-card">
+          <h2>くらしとお金の整理相談</h2>
           <p>税金、保険、年金、相続、エンディングノート。気になることをまとめて整理します。</p>
-        </a>
-        <a class="link-card" href="mimamori.html">
-          <h3>定期見守り訪問</h3>
-          <p>月1回程度のご自宅訪問で、安否確認と郵便物・書類の様子を確認します。</p>
-        </a>
-        <a class="link-card" href="services.html">
-          <h3>くらしを充実させるサポート</h3>
-          <p>整理収納、ハンドケア、フットケアなど、多様な力を紹介しています。</p>
-        </a>
-        <a class="link-card" href="events.html">
-          <h3>集まりの場</h3>
-          <p>お出かけ、サークル、暮らしの学び講座など、気軽に参加できる集まりです。</p>
-        </a>
+          <ul>
+            <li>確定申告・税金の確認</li>
+            <li>保険や書類の整理</li>
+            <li>相続した不動産・住まいの相談</li>
+            <li>エンディングノート作成支援</li>
+          </ul>
+          <a class="btn btn-primary" href="money-consult.html">詳しく見る</a>
+        </div>
+        <div class="consult-card">
+          <h2>くらしを充実させるサポート</h2>
+          <p>お部屋の片付けや、手肌・足のケアなど。女性を中心としたサービス提供者による取り組みです。</p>
+          <ul>
+            <li>整理収納アドバイザーによる片付けサポート</li>
+            <li>ハンドケア</li>
+            <li>フットケア</li>
+          </ul>
+          <a class="btn btn-primary" href="services.html">詳しく見る</a>
+        </div>
       </div>
     </div>
   </section>
@@ -227,9 +193,9 @@
         <h3>サイト内リンク</h3>
         <ul>
           <li><a href="index.html">Wie for Life トップ</a></li>
-          <li><a href="consult.html">ご相談内容</a></li>
-          <li><a href="money-consult.html">くらしとお金の整理相談</a></li>
+          <li><a href="about.html">私たちについて</a></li>
           <li><a href="mimamori.html">定期見守り訪問</a></li>
+          <li><a href="money-consult.html">くらしとお金の整理相談</a></li>
           <li><a href="services.html">くらしを充実させるサポート</a></li>
           <li><a href="events.html">集まりの場</a></li>
         </ul>

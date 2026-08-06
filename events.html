@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wie for Life｜くらしを充実させるサポート</title>
-<meta name="description" content="整理収納、ハンドケア、フットケアなど、女性を中心としたサービス提供者による、くらしを充実させるサポートをご紹介しています。Wie for Life。">
+<title>Wie for Life｜集まりの場</title>
+<meta name="description" content="お出かけやサークル、暮らしの学び講座など、気軽に参加できる集まりをご案内しています。Wie for Lifeの集まりの場です。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -22,10 +22,6 @@
     --line:#E6DFC9;
     --error:#A14A3D;
     --error-bg:#F5E9E6;
-    --ok:#3F7A5C;
-    --ok-bg:#E9F1EB;
-    --soon:#9A8F5C;
-    --soon-bg:#F1ECDD;
     --font:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
     --container:1120px;
   }
@@ -90,37 +86,18 @@
   .btn-primary:hover{background:var(--navy);color:#fff;}
   .btn-secondary{background:transparent;color:var(--navy);border:1.5px solid var(--navy);}
   .btn-secondary:hover{background:var(--navy-soft);}
-  .btn-small{padding:10px 20px;font-size:15px;min-height:auto;}
 
   /* hero */
-  .hero{padding:52px 0 64px;background:var(--bg);}
-  .hero-inner{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;}
-  @media (max-width:900px){.hero-inner{grid-template-columns:1fr;}.hero-media{order:-1;}}
-  .hero-tag{display:inline-block;background:var(--navy-soft);color:var(--navy);font-size:13.5px;font-weight:600;padding:6px 14px;border-radius:100px;margin-bottom:18px;}
-  .service-name{font-size:clamp(30px,4.6vw,44px);font-weight:800;color:var(--navy);line-height:1.3;margin:0 0 14px;text-wrap:balance;}
-  .hero-copy h1{font-size:clamp(20px,2.6vw,25px);font-weight:600;color:var(--ink-soft);line-height:1.6;margin:0 0 18px;text-wrap:balance;}
-  .hero-copy .sub{font-size:17px;color:var(--ink-soft);margin:0 0 30px;}
-  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;}
-  .hero-media img{border-radius:16px;width:100%;height:auto;}
+  .hero{padding:52px 0 48px;background:var(--bg);text-align:center;}
+  .hero .eyebrow2{display:inline-block;background:var(--navy-soft);color:var(--navy);font-size:13.5px;font-weight:600;padding:6px 14px;border-radius:100px;margin-bottom:18px;}
+  .service-name{font-size:clamp(30px,4.6vw,42px);font-weight:800;color:var(--navy);line-height:1.3;max-width:760px;margin:0 auto 14px;text-wrap:balance;}
+  .hero h1{font-size:clamp(20px,2.6vw,25px);font-weight:600;color:var(--ink-soft);line-height:1.6;max-width:640px;margin:0 auto 18px;text-wrap:balance;}
+  .hero .sub{font-size:17px;color:var(--ink-soft);max-width:620px;margin:0 auto;}
 
-  /* wishes (worries, but framed positively) */
-  .wish-list{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:900px;margin:0 auto;}
+  /* wishes */
+  .wish-list{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:760px;margin:0 auto;}
   .wish-list li{position:relative;padding:16px 20px 16px 46px;background:var(--surface);border:1px solid var(--line);border-radius:12px;font-size:17px;}
   .wish-list li::before{content:"✓";position:absolute;left:18px;top:16px;color:var(--navy);font-weight:700;}
-
-  /* concept */
-  .concept-lede{max-width:720px;margin:0 auto 20px;font-size:18.5px;text-align:center;}
-  .concept-story{max-width:720px;margin:0 auto 0;background:var(--surface);border-left:4px solid var(--navy);padding:22px 26px;border-radius:6px;font-size:17px;color:var(--ink-soft);}
-
-  /* catalog */
-  .catalog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;}
-  .catalog-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;display:flex;flex-direction:column;gap:12px;}
-  .catalog-card h3{font-size:19px;color:var(--navy);margin:0;}
-  .catalog-card p{font-size:16px;color:var(--ink-soft);margin:0;flex-grow:1;}
-  .status-tag{display:inline-block;font-size:13px;font-weight:700;padding:5px 12px;border-radius:100px;width:fit-content;}
-  .status-tag.ready{background:var(--ok-bg);color:var(--ok);}
-  .status-tag.soon{background:var(--soon-bg);color:var(--soon);}
-  .catalog-card .card-action{margin-top:6px;}
 
   /* events */
   .event-photo{border-radius:16px;overflow:hidden;max-width:640px;margin:0 auto 36px;border:1px solid var(--line);}
@@ -130,12 +107,6 @@
   .event-card h3{font-size:17px;color:var(--navy);margin:0 0 8px;}
   .event-card p{font-size:15px;color:var(--ink-soft);margin:0;}
   .event-note{text-align:center;margin-top:24px;font-size:16px;color:var(--ink-soft);}
-
-  /* entrepreneur note */
-  .entre-note{max-width:760px;margin:0 auto;background:var(--navy-soft);border-radius:16px;padding:28px 30px;}
-  .entre-note h3{font-size:18px;color:var(--navy);margin:0 0 10px;}
-  .entre-note p{font-size:16.5px;color:var(--ink);margin:0 0 10px;}
-  .entre-note p:last-child{margin-bottom:0;}
 
   /* inquiry form */
   .apply-inner{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start;}
@@ -176,7 +147,7 @@
   <div class="header-inner">
     <a class="logo-group" href="index.html">
       <span class="logo">Wie for Life</span>
-      <span class="logo-sub">くらしを充実させるサポート</span>
+      <span class="logo-sub">集まりの場</span>
     </a>
     <div class="header-right">
       <nav class="main-nav" id="main-nav">
@@ -187,7 +158,7 @@
           <li><a href="events.html">集まりの場</a></li>
         </ul>
       </nav>
-      <a class="header-cta" href="#inquiry">相談する</a>
+      <a class="header-cta" href="#inquiry">問い合わせる</a>
       <button class="nav-toggle" id="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="メニューを開く">
         <span></span><span></span><span></span>
       </button>
@@ -199,20 +170,11 @@
 
   <!-- hero -->
   <section class="hero" id="hero">
-    <div class="container hero-inner">
-      <div class="hero-copy">
-        <span class="hero-tag">整理収納・ハンドケア・フットケアなど</span>
-        <p class="service-name">くらしを充実させるサポート</p>
-        <h1>小さな困りごとも、頼れる人を。</h1>
-        <p class="sub">お部屋の片付けや、手肌・足のケアなど。女性を中心としたサービス提供者による取り組みで、これから少しずつ増えていきます。</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#catalog">サービス一覧を見る</a>
-          <a class="btn btn-secondary" href="#inquiry">気になるサービスを相談する</a>
-        </div>
-      </div>
-      <div class="hero-media">
-        <img src="assets/images/services-hero.png" alt="明るいリビングで、お茶を飲みながら楽しそうに談笑するシニア女性たち">
-      </div>
+    <div class="container">
+      <span class="eyebrow2">ときどき、顔を合わせる場</span>
+      <p class="service-name">集まりの場</p>
+      <h1>お出かけ、サークル、ちょっとした講座。</h1>
+      <p class="sub">気軽に参加できる集まりを、少しずつ企画しています。売り込みを目的としたものではありません。</p>
     </div>
   </section>
 
@@ -221,61 +183,41 @@
     <div class="container">
       <div class="section-head fade-in">
         <span class="eyebrow">Wishes</span>
-        <h2>こんなこと、ありませんか?</h2>
+        <h2>こんな気持ち、ありませんか?</h2>
       </div>
       <ul class="wish-list fade-in">
-        <li>体のケアはしたいが、大きな病院に行くほどではない</li>
-        <li>お部屋の片付けが、少しずつ億劫になってきた</li>
+        <li>毎日をもっと楽しみたいが、きっかけがない</li>
+        <li>新しい出会いや、気軽な会話の機会がほしい</li>
       </ul>
     </div>
   </section>
 
-  <!-- catalog -->
-  <section class="sec-alt" id="catalog">
+  <!-- events -->
+  <section class="sec-alt" id="gatherings">
     <div class="container">
       <div class="section-head fade-in">
-        <span class="eyebrow">Catalog</span>
-        <h2>サービス一覧</h2>
-        <p>ご案内中のサービスと、これから拡充していくサービスです。</p>
+        <span class="eyebrow">Gatherings</span>
+        <h2>企画している集まり</h2>
+        <p>現在企画中です。決まり次第、こちらでご案内します。</p>
       </div>
-      <div class="catalog-grid fade-in">
-        <div class="catalog-card">
-          <span class="status-tag soon">準備中</span>
-          <h3>整理収納アドバイザーによる片付けサポート</h3>
-          <p>お部屋や持ち物の片付けを、無理のないペースで一緒に進めます。整理収納アドバイザーが担当予定です。</p>
-          <a class="btn btn-secondary btn-small card-action" href="#inquiry">気になる方はこちら</a>
+      <figure class="event-photo fade-in">
+        <img src="assets/images/services-events.png" alt="手芸サークルで、笑顔で会話しながら手を動かして楽しむシニア女性たち">
+      </figure>
+      <div class="event-grid fade-in">
+        <div class="event-card">
+          <h3>お茶会・交流会</h3>
+          <p>気軽におしゃべりできる集まりを予定しています。</p>
         </div>
-        <div class="catalog-card">
-          <span class="status-tag soon">準備中</span>
-          <h3>ハンドケア</h3>
-          <p>手肌のお手入れや爪のケアで、気持ちも一緒に整える時間を。専門の担当者が対応予定です。</p>
-          <a class="btn btn-secondary btn-small card-action" href="#inquiry">気になる方はこちら</a>
+        <div class="event-card">
+          <h3>手芸・趣味のサークル</h3>
+          <p>好きなことを、同じ興味を持つ人と一緒に。</p>
         </div>
-        <div class="catalog-card">
-          <span class="status-tag soon">準備中</span>
-          <h3>フットケア</h3>
-          <p>足のむくみや爪のお手入れなど、歩く毎日を支えるケアです。専門の担当者が対応予定です。</p>
-          <a class="btn btn-secondary btn-small card-action" href="#inquiry">気になる方はこちら</a>
+        <div class="event-card">
+          <h3>暮らしの学び講座</h3>
+          <p>お金や暮らしに関する、気軽に参加できる講座を予定しています。</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- concept -->
-  <section class="sec-alt" id="concept">
-    <div class="container">
-      <div class="section-head fade-in">
-        <span class="eyebrow">Concept</span>
-        <h2>このサポートについて</h2>
-      </div>
-      <p class="concept-lede fade-in">Wie for Lifeは、税務相談をきっかけに生まれました。相談の中で、お金のことだけでなく、暮らし全体を安心して過ごしたいという声を多くいただいてきました。</p>
-      <div class="concept-story fade-in">
-        くらしを充実させるサポートは、様々な分野で活動する、女性を中心としたサービス提供者の皆さんとつながり、シニアの暮らしに合った形でサービスをご紹介する取り組みです。すべてのサービスの結果を保証するものではありませんが、実際にお話をうかがった担当者を、責任を持ってご紹介します。
-      </div>
-      <div class="entre-note fade-in" style="margin-top:32px;">
-        <h3>サービス提供をご検討の方へ</h3>
-        <p>このページでのサービス掲載にご興味のある方も、下記フォームからお問い合わせいただけます。</p>
-      </div>
+      <p class="event-note fade-in">「こんな集まりがあったら」というご希望も、下記フォームからお寄せください。</p>
     </div>
   </section>
 
@@ -284,8 +226,8 @@
     <div class="container">
       <div class="section-head fade-in">
         <span class="eyebrow">Inquiry</span>
-        <h2>気になるサービスをお聞かせください</h2>
-        <p>売り込みを目的としたご案内はいたしません。準備中のサービスも、ご希望があればお声がけください。</p>
+        <h2>興味のある集まりをお聞かせください</h2>
+        <p>参加を確約するものではありません。ご希望をうかがうためのフォームです。</p>
       </div>
       <div class="apply-inner fade-in">
         <form class="apply-form" id="inquiry-form" novalidate>
@@ -300,18 +242,17 @@
           </div>
 
           <div class="form-group">
-            <label id="interest-label">気になるサービス(複数選択可)</label>
+            <label id="interest-label">興味のある集まり(複数選択可)</label>
             <div class="checkbox-grid" role="group" aria-labelledby="interest-label">
-              <label class="checkbox-option"><input type="checkbox" name="interest" value="整理収納アドバイザー">整理収納アドバイザー</label>
-              <label class="checkbox-option"><input type="checkbox" name="interest" value="ハンドケア">ハンドケア</label>
-              <label class="checkbox-option"><input type="checkbox" name="interest" value="フットケア">フットケア</label>
-              <label class="checkbox-option"><input type="checkbox" name="interest" value="サービス掲載について(サービス提供者の方)">サービス掲載について(サービス提供者の方)</label>
+              <label class="checkbox-option"><input type="checkbox" name="interest" value="お茶会・交流会">お茶会・交流会</label>
+              <label class="checkbox-option"><input type="checkbox" name="interest" value="手芸・趣味のサークル">手芸・趣味のサークル</label>
+              <label class="checkbox-option"><input type="checkbox" name="interest" value="暮らしの学び講座">暮らしの学び講座</label>
             </div>
           </div>
 
           <div class="form-group">
             <label for="applicant-message">ご希望やご質問(任意)</label>
-            <textarea id="applicant-message" name="applicant-message" rows="4" placeholder="まだ漠然としている内容でも構いません"></textarea>
+            <textarea id="applicant-message" name="applicant-message" rows="4" placeholder="こんな集まりがあったら、というご希望でも構いません"></textarea>
           </div>
 
           <label class="checkbox-row">
@@ -326,9 +267,8 @@
         <div class="apply-note">
           <h3>お問い合わせ前に</h3>
           <ul>
-            <li>準備中のサービスは、内容や開始時期が変わる場合があります。</li>
-            <li>ご希望に添えない場合もございますので、あらかじめご了承ください。</li>
-            <li>料金が発生する場合は、事前に必ずご説明します。</li>
+            <li>企画中の内容は、変更になる場合があります。</li>
+            <li>参加費が発生する場合は、事前に必ずご説明します。</li>
             <li>売り込みを目的としたご案内はいたしません。</li>
           </ul>
         </div>
@@ -353,7 +293,7 @@
           <li><a href="consult.html">ご相談内容</a></li>
           <li><a href="mimamori.html">定期見守り訪問</a></li>
           <li><a href="money-consult.html">くらしとお金の整理相談</a></li>
-          <li><a href="events.html">集まりの場</a></li>
+          <li><a href="services.html">くらしを充実させるサポート</a></li>
         </ul>
       </div>
       <div>
@@ -432,7 +372,7 @@
           payload[key] = value;
         }
       });
-      console.log('くらしを充実させるサポート お問い合わせ送信内容(ダミー):', payload);
+      console.log('集まりの場 お問い合わせ送信内容(ダミー):', payload);
       // TODO: 送信先エンドポイントを実装後に接続
 
       status.textContent = '送信内容を確認しました。担当より折り返しご連絡いたします。';
