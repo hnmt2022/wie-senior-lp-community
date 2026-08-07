@@ -12,3 +12,7 @@ __pycache__/
 # OS固有ファイル
 .DS_Store
 Thumbs.db
+
+# 内部用（ブランド方針・NG表現などが含まれるため非公開）
+scripts/
+STYLE.md
