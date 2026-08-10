@@ -581,9 +581,7 @@
         headers: { 'Content-Type': 'text/plain' },
         body: JSON.stringify(payload)
       }).then(function(){
-        status.textContent = '送信内容を確認しました。担当より折り返しご連絡いたします。';
-        status.className = 'form-status show success';
-        form.reset();
+        window.location.href = 'thanks.html';
       }).catch(function(){
         status.textContent = '送信に失敗しました。時間をおいて再度お試しいただくか、お電話でご連絡ください。';
         status.className = 'form-status show error';
