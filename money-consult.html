@@ -783,6 +783,8 @@
     fadeEls.forEach(function(el){ observer.observe(el); });
   }
 
+  var GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwp5hvrW8V6mxECucaKHkK-xRmJacUQKzv7rfqBWH0TLAUcsmuiGsRHlikohBAZ01MC/exec';
+
   var form = document.getElementById('apply-form');
   var status = document.getElementById('form-status');
   if(form){
@@ -807,14 +809,25 @@
       }
 
       var data = new FormData(form);
-      var payload = {};
+      var payload = { page: 'くらしとお金の整理相談' };
       data.forEach(function(value, key){ payload[key] = value; });
-      console.log('Wie for Life 申込フォーム送信内容(ダミー):', payload);
-      // TODO: 送信先エンドポイントを実装後に接続
 
-      status.textContent = '送信内容を確認しました。担当より折り返しご連絡いたします。';
-      status.className = 'form-status show success';
-      form.reset();
+      status.textContent = '送信中です…';
+      status.className = 'form-status show';
+
+      fetch(GAS_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify(payload)
+      }).then(function(){
+        status.textContent = '送信内容を確認しました。担当より折り返しご連絡いたします。';
+        status.className = 'form-status show success';
+        form.reset();
+      }).catch(function(){
+        status.textContent = '送信に失敗しました。時間をおいて再度お試しいただくか、お電話でご連絡ください。';
+        status.className = 'form-status show error';
+      });
     });
   }
 })();
