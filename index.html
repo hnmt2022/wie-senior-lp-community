@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wie for Life｜つながりが、暮らしを豊かにする</title>
-<meta name="description" content="Wie for Lifeは、ちょっとした集まりから、くらしやお金のご相談、見守りまで。つながりを大切にする市民活動です。">
+<title>Wie 暮らしのかかりつけ｜つながりが、暮らしを豊かにする</title>
+<meta name="description" content="Wie 暮らしのかかりつけは、ちょっとした集まりから、くらしやお金のご相談、見守りまで。つながりを大切にする市民活動です。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -125,6 +125,26 @@
   footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;}
   footer a{color:#C8D0CE;}
   footer .copyright{border-top:1px solid rgba(255,255,255,0.15);padding-top:20px;font-size:13px;color:#9AA6A2;text-align:center;}
+
+  /* ご本人・ご家族のページ */
+  .door-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px;margin:0 auto;}
+  @media (max-width:760px){.door-grid{grid-template-columns:1fr;}}
+  .door{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:32px 28px;display:flex;flex-direction:column;}
+  .door h2,.door h3{font-size:22px;color:var(--navy);margin:0 0 10px;}
+  .door p{font-size:16px;color:var(--ink-soft);margin:0 0 16px;}
+  .door ul{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:8px;flex-grow:1;}
+  .door li{font-size:15.5px;color:var(--ink-soft);padding-left:1.2em;position:relative;}
+  .door li::before{content:"・";position:absolute;left:0;}
+  .door .btn{align-self:flex-start;}
+  .check-list{list-style:none;padding:0;margin:0 auto;max-width:720px;display:grid;gap:12px;}
+  .check-list li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 20px 16px 48px;position:relative;font-size:16.5px;}
+  .check-list li::before{content:"✓";position:absolute;left:20px;color:var(--navy);font-weight:700;}
+  .note-box{max-width:720px;margin:0 auto;background:var(--navy-soft);border-radius:16px;padding:28px 30px;color:var(--navy);font-size:16.5px;line-height:1.9;}
+  .note-box h2{font-size:20px;margin:0 0 10px;}
+  .mail-box{max-width:720px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .mail-box__address{font-weight:700;font-size:1.15em;margin:0;overflow-wrap:anywhere;}
+  .mail-box__sub{margin:0;color:var(--ink-soft);font-size:15px;}
+  .page-you .door p,.page-you .door li,.page-you .hero .sub{font-size:18px;}
 </style>
 </head>
 <body>
@@ -133,7 +153,7 @@
 <header class="site-header">
   <div class="header-inner">
     <a class="logo-group" href="index.html">
-      <span class="logo">Wie for Life</span>
+      <span class="logo">Wie 暮らしのかかりつけ</span>
       <span class="logo-sub">つながりから、はじめませんか</span>
     </a>
     <div class="header-right">
@@ -145,7 +165,7 @@
           <li><a href="events.html">よりあい</a></li>
         </ul>
       </nav>
-      <a class="header-cta" href="consult.html">相談する</a>
+      <a class="header-cta" href="#doors">相談する</a>
       <button class="nav-toggle" id="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="メニューを開く">
         <span></span><span></span><span></span>
       </button>
@@ -158,9 +178,30 @@
   <!-- hero -->
   <section class="hero" id="hero">
     <div class="container">
-      <span class="eyebrow2">Wie for Life</span>
+      <span class="eyebrow2">Wie 暮らしのかかりつけ</span>
       <h1>つながりが、<br>暮らしを豊かにする。</h1>
       <p class="lede">ご本人にも、ご家族にも。ちょっとした集まりから、くらしやお金のご相談、見守りまで。無理のない関わり方を、一緒に見つけていきます。</p>
+    </div>
+  </section>
+
+
+  <!-- doors -->
+  <section class="sec-base" id="doors">
+    <div class="container">
+      <div class="door-grid fade-in">
+        <div class="door">
+          <h2>ご本人の方へ</h2>
+          <p>これからの暮らしを、自分のペースで整えたい方へ。</p>
+          <ul><li>気軽な集まり「よりあい」</li><li>書類やお金の整理のご相談</li><li>月1回の訪問「暮らしのかかりつけ」</li></ul>
+          <a class="btn btn-primary" href="for-you.html">ご本人の方へ</a>
+        </div>
+        <div class="door">
+          <h2>離れて暮らすご家族の方へ</h2>
+          <p>親の暮らしが気になるけれど、すぐには行けない方へ。</p>
+          <ul><li>月1回の訪問と、ご家族へのご報告</li><li>書類やお金の整理のお手伝い</li><li>必要に応じて、専門家や地域の窓口へおつなぎ</li></ul>
+          <a class="btn btn-primary" href="for-family.html">ご家族の方へ</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -210,7 +251,7 @@
   <section class="sec-base">
     <div class="container">
       <div class="mission-teaser fade-in">
-        <p>Wie for Lifeは、一つのサービスではなく、こうしたつながりを少しずつ積み重ねていく、市民活動です。</p>
+        <p>Wie 暮らしのかかりつけは、一つのサービスではなく、こうしたつながりを少しずつ積み重ねていく、市民活動です。</p>
         <a class="btn btn-secondary" href="about.html">私たちが大切にしていることを見る</a>
       </div>
     </div>
@@ -222,8 +263,8 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <h3>Wie for Life について</h3>
-        <p>[事業者名]<br>[住所]<br>電話: [電話番号]<br>税理士登録番号: [登録番号]</p>
+        <h3>Wie 暮らしのかかりつけ について</h3>
+        <p>市民活動団体 Wie が運営する、シニアの方とご家族のための取り組みです。札幌市を中心に活動しています。</p>
       </div>
       <div>
         <h3>サイト内リンク</h3>
@@ -237,14 +278,14 @@
         </ul>
       </div>
       <div>
-        <h3>その他</h3>
+        <h3>お問い合わせ</h3>
         <ul>
-          <li><a href="#">プライバシーポリシー</a></li>
-          <li><a href="#">特定商取引法に基づく表記</a></li>
+          <li><a href="mailto:info@withwie.jp">info@withwie.jp</a></li>
+          <li><a href="https://withwie.jp/">運営：市民活動団体 Wie</a></li>
         </ul>
       </div>
     </div>
-    <p class="copyright">&copy; 2026 Wie for Life</p>
+    <p class="copyright">&copy; 2026 Wie 暮らしのかかりつけ</p>
   </div>
 </footer>
 

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ご本人の方へ｜Wie 暮らしのかかりつけ</title>
+<meta name="description" content="これからの暮らしを、自分のペースで。書類やお金の整理、気軽な集まり、月1回の訪問など、顔なじみの相手と一緒に暮らしを整えるお手伝いをします。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBF6EA;
+    --bg-alt:#F5E7BE;
+    --surface:#FFFFFF;
+    --navy:#1F3A5C;
+    --navy-soft:#E7ECF1;
+    --ink:#322C22;
+    --ink-soft:#6B6152;
+    --cta:#E8899B;
+    --cta-ink:#1F3A5C;
+    --line:#E6DFC9;
+    --font:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+    --container:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.85;font-size:18px;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+  a{color:var(--navy);}
+  h1,h2,h3{font-family:var(--font);font-weight:700;margin:0;}
+  p{margin:0 0 1em;}
+  ul{margin:0;}
+  .container{max-width:var(--container);margin:0 auto;padding:0 24px;}
+
+  .skip-link{position:absolute;left:-999px;top:0;background:var(--navy);color:#fff;padding:12px 20px;z-index:300;border-radius:0 0 8px 0;text-decoration:none;font-size:14px;}
+  .skip-link:focus{left:0;}
+  :focus-visible{outline:3px solid var(--navy);outline-offset:2px;}
+
+  .fade-in{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+  .fade-in.is-visible{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .fade-in{opacity:1;transform:none;transition:none;}
+  }
+
+  /* header */
+  header.site-header{position:sticky;top:0;z-index:100;background:rgba(251,246,234,0.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px;max-width:var(--container);margin:0 auto;}
+  .logo-group{display:flex;flex-direction:column;line-height:1.3;text-decoration:none;}
+  .logo{font-weight:700;font-size:19px;color:var(--navy);text-decoration:none;letter-spacing:0.02em;white-space:nowrap;}
+  .logo-sub{font-size:12.5px;color:var(--ink-soft);}
+  .header-right{display:flex;align-items:center;gap:16px;}
+  nav.main-nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:18px;margin:0;padding:0;}
+  nav.main-nav a{text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;}
+  nav.main-nav a:hover{color:var(--navy);}
+  .header-cta{background:var(--cta);color:var(--cta-ink);padding:12px 24px;border-radius:100px;text-decoration:none;font-weight:600;font-size:15px;white-space:nowrap;min-height:48px;display:inline-flex;align-items:center;transition:background .15s ease,color .15s ease;}
+  .header-cta:hover{background:var(--navy);color:#fff;}
+  .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:10px;}
+  .nav-toggle span{display:block;width:24px;height:2px;background:var(--navy);margin:5px 0;}
+
+  @media (max-width:900px){
+    nav.main-nav{position:fixed;top:64px;left:0;right:0;height:calc(100vh - 64px);background:var(--bg);padding:24px;transform:translateY(-110%);transition:transform .25s ease;overflow-y:auto;pointer-events:none;}
+    nav.main-nav.open{transform:translateY(0);pointer-events:auto;}
+    nav.main-nav ul{flex-direction:column;gap:2px;}
+    nav.main-nav a{display:block;padding:16px 6px;font-size:18px;border-bottom:1px solid var(--line);}
+    .nav-toggle{display:block;}
+    .logo{font-size:16px;}
+    .header-cta{padding:9px 14px;font-size:13px;}
+    .header-right{gap:10px;}
+  }
+
+  main section{padding:72px 0;}
+  .sec-alt{background:var(--bg-alt);}
+  .sec-base{background:var(--surface);}
+
+  .section-head{max-width:640px;margin:0 auto 40px;text-align:center;}
+  .eyebrow{font-size:13.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--navy);font-weight:600;margin-bottom:10px;display:block;opacity:0.8;}
+  .section-head h2{font-size:clamp(26px,3.4vw,34px);color:var(--navy);margin:0 0 14px;text-wrap:balance;}
+  .section-head p{color:var(--ink-soft);font-size:17.5px;margin:0;}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;padding:16px 32px;border-radius:100px;font-weight:600;font-size:19px;text-decoration:none;cursor:pointer;border:none;min-height:52px;font-family:var(--font);transition:background .15s ease,color .15s ease;}
+  .btn-primary{background:var(--cta);color:var(--cta-ink);}
+  .btn-primary:hover{background:var(--navy);color:#fff;}
+  .btn-secondary{background:transparent;color:var(--navy);border:1.5px solid var(--navy);}
+  .btn-secondary:hover{background:var(--navy-soft);}
+
+  /* hero */
+  .hero{padding:52px 0 48px;background:var(--bg);text-align:center;}
+  .hero .eyebrow2{display:inline-block;background:var(--navy-soft);color:var(--navy);font-size:13.5px;font-weight:600;padding:6px 14px;border-radius:100px;margin-bottom:18px;}
+  .service-name{font-size:clamp(30px,4.6vw,42px);font-weight:800;color:var(--navy);line-height:1.3;max-width:760px;margin:0 auto 14px;text-wrap:balance;}
+  .hero h1{font-size:clamp(20px,2.6vw,25px);font-weight:600;color:var(--ink-soft);line-height:1.6;max-width:640px;margin:0 auto 18px;text-wrap:balance;}
+  .hero .sub{font-size:17px;color:var(--ink-soft);max-width:620px;margin:0 auto;}
+
+  /* consult cards */
+  .consult-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px;margin:0 auto;}
+  @media (max-width:760px){.consult-grid{grid-template-columns:1fr;}}
+  .consult-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:32px 28px;display:flex;flex-direction:column;}
+  .consult-card h2{font-size:21px;color:var(--navy);margin:0 0 12px;}
+  .consult-card p{font-size:16px;color:var(--ink-soft);margin:0 0 20px;flex-grow:1;}
+  .consult-card ul{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:8px;}
+  .consult-card li{font-size:15px;color:var(--ink-soft);padding-left:1.2em;position:relative;}
+  .consult-card li::before{content:"・";position:absolute;left:0;}
+
+  /* footer */
+  footer.site-footer{background:var(--navy);color:#EDEFEA;padding:52px 0 30px;}
+  footer .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;margin-bottom:32px;}
+  @media (max-width:700px){footer .footer-grid{grid-template-columns:1fr;gap:24px;}}
+  footer h3{font-size:15.5px;margin:0 0 14px;color:#fff;}
+  footer p,footer li{font-size:14.5px;color:#C8D0CE;line-height:1.8;}
+  footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;}
+  footer a{color:#C8D0CE;}
+  footer .copyright{border-top:1px solid rgba(255,255,255,0.15);padding-top:20px;font-size:13px;color:#9AA6A2;text-align:center;}
+
+  /* ご本人・ご家族のページ */
+  .door-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px;margin:0 auto;}
+  @media (max-width:760px){.door-grid{grid-template-columns:1fr;}}
+  .door{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:32px 28px;display:flex;flex-direction:column;}
+  .door h2,.door h3{font-size:22px;color:var(--navy);margin:0 0 10px;}
+  .door p{font-size:16px;color:var(--ink-soft);margin:0 0 16px;}
+  .door ul{list-style:none;padding:0;margin:0 0 20px;display:grid;gap:8px;flex-grow:1;}
+  .door li{font-size:15.5px;color:var(--ink-soft);padding-left:1.2em;position:relative;}
+  .door li::before{content:"・";position:absolute;left:0;}
+  .door .btn{align-self:flex-start;}
+  .check-list{list-style:none;padding:0;margin:0 auto;max-width:720px;display:grid;gap:12px;}
+  .check-list li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 20px 16px 48px;position:relative;font-size:16.5px;}
+  .check-list li::before{content:"✓";position:absolute;left:20px;color:var(--navy);font-weight:700;}
+  .note-box{max-width:720px;margin:0 auto;background:var(--navy-soft);border-radius:16px;padding:28px 30px;color:var(--navy);font-size:16.5px;line-height:1.9;}
+  .note-box h2{font-size:20px;margin:0 0 10px;}
+  .mail-box{max-width:720px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .mail-box__address{font-weight:700;font-size:1.15em;margin:0;overflow-wrap:anywhere;}
+  .mail-box__sub{margin:0;color:var(--ink-soft);font-size:15px;}
+  .page-you .door p,.page-you .door li,.page-you .hero .sub{font-size:18px;}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo-group" href="index.html">
+      <span class="logo">Wie 暮らしのかかりつけ</span>
+      <span class="logo-sub">ご本人の方へ</span>
+    </a>
+    <div class="header-right">
+      <nav class="main-nav" id="main-nav">
+        <ul>
+          <li><a href="about.html">私たちについて</a></li>
+          <li><a href="consult.html">ご相談内容</a></li>
+          <li><a href="mimamori.html">見守り</a></li>
+          <li><a href="events.html">よりあい</a></li>
+        </ul>
+      </nav>
+      <a class="header-cta" href="#contact">相談する</a>
+      <button class="nav-toggle" id="nav-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main" class="page-you">
+
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow2">ご本人の方へ</span>
+      <p class="service-name">これからの暮らしを、自分のペースで。</p>
+      <h1>書類のこと、お金のこと、人と会う機会のこと。</h1>
+      <p class="sub">ひとりで抱えずに、顔なじみの相手と一緒に整えていきませんか。できること・続けたいことを大切にしながら、お手伝いします。</p>
+    </div>
+  </section>
+
+  <section class="sec-base">
+    <div class="container">
+      <div class="door-grid fade-in">
+        <div class="door">
+          <h2>気軽に集まる「よりあい」</h2>
+          <p>お出かけやサークル、暮らしの学び講座など。ときどき顔を合わせる機会をつくっています。</p>
+          <ul><li>ひとりでも参加できます</li><li>興味のある回だけで大丈夫です</li></ul>
+          <a class="btn btn-primary" href="events.html">よりあいの案内を見る</a>
+        </div>
+        <div class="door">
+          <h2>くらしとお金の整理相談</h2>
+          <p>税金・年金・保険の書類や、エンディングノートなど。気になっていることを一緒に整理します。</p>
+          <ul><li>確定申告が必要かどうかの確認</li><li>たまった書類の整理</li><li>これからのことの整理</li></ul>
+          <a class="btn btn-primary" href="money-consult.html">くわしく見る</a>
+        </div>
+        <div class="door">
+          <h2>月1回の訪問「暮らしのかかりつけ」</h2>
+          <p>決まった担当者が月に1回ご自宅に伺い、郵便物や書類の様子を一緒に確認します。ちょっとしたことを話せる相手として。</p>
+          <ul><li>ご本人からお申し込みいただけます</li><li>ご希望があれば、ご家族にもご様子をお伝えします</li></ul>
+          <a class="btn btn-primary" href="mimamori.html">くわしく見る</a>
+        </div>
+        <div class="door">
+          <h2>くらしを充実させるサポート</h2>
+          <p>お部屋の片付けや、手肌・足のケアなど。暮らしを気持ちよく続けるためのお手伝いです。</p>
+          <ul><li>整理収納のサポート</li><li>ハンドケア・フットケア</li></ul>
+          <a class="btn btn-primary" href="services.html">くわしく見る</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-alt" id="contact">
+    <div class="container">
+      <div class="section-head fade-in">
+        <span class="eyebrow">お問い合わせ</span>
+        <h2>まずは、お話をお聞かせください</h2>
+        <p>どれにするか決まっていなくても大丈夫です。気になっていることをそのままお書きください。</p>
+      </div>
+      <div class="mail-box">
+          <a class="btn btn-primary" href="mailto:info@withwie.jp?subject=%E3%80%90Wie%20%E6%9A%AE%E3%82%89%E3%81%97%E3%81%AE%E3%81%8B%E3%81%8B%E3%82%8A%E3%81%A4%E3%81%91%E3%80%91%E3%81%94%E6%9C%AC%E4%BA%BA%E3%81%8B%E3%82%89%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87&body=%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0A%E3%81%8A%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7%EF%BC%9A%0A%E3%81%8A%E4%BD%8F%E3%81%BE%E3%81%84%E3%81%AE%E5%B8%82%E5%8C%BA%E7%94%BA%E6%9D%91%EF%BC%9A%0A%E6%B0%97%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8%EF%BC%9A%0A">メールで相談する</a>
+          <p class="mail-box__address">info@withwie.jp</p>
+          <p class="mail-box__sub">ボタンを押すとメールの画面が開きます。開かないときは、上のアドレスにお送りください。</p>
+        </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h3>Wie 暮らしのかかりつけ について</h3>
+        <p>市民活動団体 Wie が運営する、シニアの方とご家族のための取り組みです。札幌市を中心に活動しています。</p>
+      </div>
+      <div>
+        <h3>サイト内リンク</h3>
+        <ul>
+          <li><a href="index.html">Wie 暮らしのかかりつけ トップ</a></li>
+          <li><a href="for-you.html">ご本人の方へ</a></li>
+          <li><a href="for-family.html">ご家族の方へ</a></li>
+          <li><a href="about.html">私たちについて</a></li>
+          <li><a href="mimamori.html">定期見守り訪問</a></li>
+          <li><a href="money-consult.html">くらしとお金の整理相談</a></li>
+          <li><a href="services.html">くらしを充実させるサポート</a></li>
+          <li><a href="events.html">よりあい</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>お問い合わせ</h3>
+        <ul>
+          <li><a href="mailto:info@withwie.jp">info@withwie.jp</a></li>
+          <li><a href="https://withwie.jp/">運営：市民活動団体 Wie</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">&copy; 2026 Wie 暮らしのかかりつけ</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var navToggle = document.getElementById('nav-toggle');
+  var mainNav = document.getElementById('main-nav');
+  if(navToggle && mainNav){
+    navToggle.addEventListener('click', function(){
+      var isOpen = mainNav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    mainNav.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        mainNav.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fadeEls = document.querySelectorAll('.fade-in');
+  if(reduceMotion || !('IntersectionObserver' in window)){
+    fadeEls.forEach(function(el){ el.classList.add('is-visible'); });
+  } else {
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    fadeEls.forEach(function(el){ observer.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>

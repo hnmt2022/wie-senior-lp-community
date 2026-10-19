@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Wie for Life｜くらしとお金の整理相談</title>
-<meta name="description" content="Wie for Lifeは、税金・保険・年金・相続・エンディングノートなど、これからの暮らしとお金の「気になること」を一緒に整理し、必要に応じて専門家や地域の支援先へつなぐ、シニアとご家族のための相談窓口です。">
+<title>Wie 暮らしのかかりつけ｜くらしとお金の整理相談</title>
+<meta name="description" content="Wie 暮らしのかかりつけは、税金・保険・年金・相続・エンディングノートなど、これからの暮らしとお金の「気になること」を一緒に整理し、必要に応じて専門家や地域の支援先へつなぐ、シニアとご家族のための相談窓口です。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -211,6 +211,13 @@
   footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;}
   footer a{color:#C8D0CE;}
   footer .copyright{border-top:1px solid rgba(255,255,255,0.15);padding-top:20px;font-size:13px;color:#9AA6A2;text-align:center;}
+
+/* メールでのお申し込み */
+.mail-box { display: flex; flex-direction: column; gap: 12px; }
+.mail-box .btn { align-self: flex-start; }
+.mail-box__address { font-weight: 700; font-size: 1.15em; margin: 0; overflow-wrap: anywhere; }
+.mail-box__lead, .mail-box__sub { margin: 0; }
+.mail-box__list { margin: 0; padding-left: 1.4em; }
 </style>
 </head>
 <body>
@@ -219,7 +226,7 @@
 <header class="site-header">
   <div class="header-inner">
     <a class="logo-group" href="index.html">
-      <span class="logo">Wie for Life</span>
+      <span class="logo">Wie 暮らしのかかりつけ</span>
       <span class="logo-sub">くらしとお金の整理相談</span>
     </a>
     <div class="header-right">
@@ -301,9 +308,9 @@
         <span class="eyebrow">Concept</span>
         <h2>答えを急がず、まず一緒に整理することから。</h2>
       </div>
-      <p class="concept-lede fade-in">Wie for Lifeは、一つの分野だけを見るのではなく、まずお話をうかがい、今の状況や困りごとを一緒に整理することを大切にしています。</p>
+      <p class="concept-lede fade-in">Wie 暮らしのかかりつけは、一つの分野だけを見るのではなく、まずお話をうかがい、今の状況や困りごとを一緒に整理することを大切にしています。</p>
       <div class="concept-story fade-in">
-        Wie for Lifeは、税務相談をきっかけに生まれました。確定申告のご相談にいらした方から、実は年金のことも、実家のことも、これからの暮らしのことも気になっている、というお話をよく伺ってきました。だからこそ、一つの相談窓口で、暮らし全体の「気になること」に向き合うことにしました。
+        Wie 暮らしのかかりつけは、税金の相談の場で聞いてきた声から生まれました。確定申告のことで相談にいらした方から、実は年金のことも、実家のことも、これからの暮らしのことも気になっている、というお話をよく伺ってきました。だからこそ、暮らし全体の「気になること」を最初に話せる場所をつくり、専門的な判断が必要なことは提携する専門家につなぐことにしました。
       </div>
       <div class="promise-grid fade-in">
         <div class="promise-card">
@@ -347,7 +354,7 @@
       <div class="service-photos fade-in">
         <figure class="service-photo">
           <img src="assets/images/tax-consultation.png" alt="年金や税金の書類を一緒に確認しながら話す60代女性と女性相談員">
-          <figcaption>税金・年金にまつわる書類を、一緒に確認します</figcaption>
+          <figcaption>届いた書類を、一緒に整理します</figcaption>
         </figure>
         <figure class="service-photo">
           <img src="assets/images/insurance-organizing.png" alt="自宅のテーブルで保険の書類を整理する女性と相談員">
@@ -357,14 +364,14 @@
 
       <div class="service-grid fade-in">
         <div class="service-card">
-          <h3>税金・確定申告</h3>
-          <p>確定申告や税務に関するご相談。</p>
-          <span class="responder-tag">税理士(代表本人)が対応</span>
+          <h3>確定申告の書類の整理</h3>
+          <p>確定申告に必要な書類をそろえるお手伝い。申告や税金の判断は、提携する税理士におつなぎします。</p>
+          <span class="responder-tag">書類の整理まで・税務は提携税理士へ</span>
         </div>
         <div class="service-card">
-          <h3>年金と税金の確認</h3>
-          <p>年金にまつわる税金の仕組みや、書類の見方の整理。</p>
-          <span class="responder-tag">税理士(代表本人)が対応</span>
+          <h3>年金の書類の整理</h3>
+          <p>年金に関わる書類の見方の整理。税金の判断が必要なときは、提携する税理士におつなぎします。</p>
+          <span class="responder-tag">書類の整理まで・税務は提携税理士へ</span>
         </div>
         <div class="service-card">
           <h3>医療費・保険の相談</h3>
@@ -433,7 +440,7 @@
           <span class="step-num" aria-hidden="true"></span>
           <div>
             <h3>専門性を生かした個別対応</h3>
-            <p>内容に応じて、税理士や知見を持つスタッフが対応します。</p>
+            <p>内容に応じて、知見を持つスタッフが対応します。税金など専門的な判断が必要なことは、提携する専門家におつなぎします。</p>
           </div>
         </li>
         <li class="flow-item">
@@ -459,9 +466,9 @@
       <div class="team-grid fade-in">
         <div class="team-card">
           <div class="avatar" aria-hidden="true">税</div>
-          <p class="role">代表 ／ 税理士</p>
-          <h3>税務・確定申告のご相談</h3>
-          <p>税務相談、確定申告、年金や医療費に関わる税金の確認など、税務に関するご相談に正式に対応します。</p>
+          <p class="role">提携の専門家 ／ 税理士</p>
+          <h3>税金・確定申告のご相談</h3>
+          <p>税務相談や確定申告など、税金に関わる判断が必要なことは、提携する税理士におつなぎします。費用は、税理士から事前にご案内します。</p>
         </div>
         <div class="team-card">
           <div class="avatar" aria-hidden="true">介</div>
@@ -510,14 +517,14 @@
       </div>
       <div class="case-grid fade-in">
         <div class="case-card">
-          <span class="case-tag">60代女性・確定申告をきっかけに</span>
+          <span class="case-tag">60代女性・確定申告の書類をきっかけに</span>
           <dl>
             <dt>状況</dt>
             <dd>年金の受給が始まり確定申告が必要になったが、何から手をつければよいか分からなかった。</dd>
             <dt>ご相談内容</dt>
-            <dd>申告に必要な書類の整理とあわせて、今後の医療費や保険についても気になっていることをうかがった。</dd>
+            <dd>申告に必要な書類をそろえるお手伝いをしながら、今後の医療費や保険についても気になっていることをうかがった。</dd>
             <dt>整理された結果</dt>
-            <dd>申告の準備を進めながら保険の書類も一緒に確認し、次に見直すタイミングの目安が分かる状態になった。</dd>
+            <dd>書類がそろった状態で提携の税理士に相談でき、保険の書類も見直すタイミングの目安が分かる状態になった。</dd>
           </dl>
         </div>
         <div class="case-card">
@@ -567,9 +574,9 @@
           <p>詳しくはお問い合わせください</p>
         </div>
         <div class="price-card">
-          <h3>個別相談・税理士業務</h3>
-          <div class="amount">内容に応じてご案内</div>
-          <p>事前に費用をご説明したうえで進めます</p>
+          <h3>提携の専門家へのご相談</h3>
+          <div class="amount">各専門家からご案内</div>
+          <p>ご紹介に費用はいただきません。専門家への報酬は、事前に各専門家からご説明します</p>
         </div>
         <div class="price-card">
           <h3>定期見守り訪問</h3>
@@ -591,7 +598,7 @@
       <div class="faq-list fade-in">
         <details class="faq-item">
           <summary>相談すると、何か商品を勧められますか?</summary>
-          <p>いいえ。Wie for Lifeは商品の販売や契約を目的にしていません。まずは状況を整理することを大切にしています。</p>
+          <p>いいえ。Wie 暮らしのかかりつけは商品の販売や契約を目的にしていません。まずは状況を整理することを大切にしています。</p>
         </details>
         <details class="faq-item">
           <summary>本人ではなく、家族だけで相談してもいいですか?</summary>
@@ -642,65 +649,19 @@
         <p>売り込みを目的としたご案内はいたしません。</p>
       </div>
       <div class="apply-inner fade-in">
-        <form class="apply-form" id="apply-form" novalidate>
-          <div class="form-group">
-            <label id="consultation-type-label">ご希望の相談種別<span aria-hidden="true"> *</span></label>
-            <div class="radio-group" role="group" aria-labelledby="consultation-type-label">
-              <label class="radio-option">
-                <input type="radio" name="consultation-type" value="初回相談(ヒアリング)" required>
-                初回相談(ヒアリング)
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="consultation-type" value="エンディングノート作成会">
-                エンディングノート作成会
-              </label>
-              <label class="radio-option">
-                <input type="radio" name="consultation-type" value="定期見守り訪問について相談したい">
-                定期見守り訪問について相談したい
-              </label>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="applicant-name">お名前<span aria-hidden="true"> *</span></label>
-            <input type="text" id="applicant-name" name="applicant-name" required autocomplete="name">
-          </div>
-
-          <div class="form-group">
-            <label for="applicant-relation">ご本人との関係</label>
-            <select id="applicant-relation" name="applicant-relation">
-              <option value="本人">ご本人として申し込む</option>
-              <option value="家族">ご家族として申し込む</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="applicant-contact">ご連絡先(電話番号またはメールアドレス)<span aria-hidden="true"> *</span></label>
-            <input type="text" id="applicant-contact" name="applicant-contact" required autocomplete="tel">
-          </div>
-
-          <div class="form-group">
-            <label id="method-label">ご希望の相談方法</label>
-            <div class="radio-group" role="group" aria-labelledby="method-label">
-              <label class="radio-option"><input type="radio" name="method" value="対面" checked>対面</label>
-              <label class="radio-option"><input type="radio" name="method" value="オンライン">オンライン</label>
-              <label class="radio-option"><input type="radio" name="method" value="電話">電話</label>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="applicant-message">気になっていること(任意)</label>
-            <textarea id="applicant-message" name="applicant-message" rows="4" placeholder="まだ漠然としている内容でも構いません"></textarea>
-          </div>
-
-          <label class="checkbox-row">
-            <input type="checkbox" name="privacy" required>
-            <span>入力内容の取り扱いについて確認し、同意します。</span>
-          </label>
-
-          <button type="submit" class="btn btn-primary">この内容で申し込む</button>
-          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
-        </form>
+        <div class="apply-form mail-box">
+          <p class="mail-box__lead">お申し込み・ご相談は、メールで承っています。下のボタンを押すと、メールの画面が開きます。</p>
+          <a class="btn btn-primary" href="mailto:info@withwie.jp?subject=%E3%80%90Wie%20%E6%9A%AE%E3%82%89%E3%81%97%E3%81%AE%E3%81%8B%E3%81%8B%E3%82%8A%E3%81%A4%E3%81%91%E3%80%91%E3%81%8F%E3%82%89%E3%81%97%E3%81%A8%E3%81%8A%E9%87%91%E3%81%AE%E6%95%B4%E7%90%86%E7%9B%B8%E8%AB%87%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6&body=%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0A%E3%81%94%E6%9C%AC%E4%BA%BA%EF%BC%8F%E3%81%94%E5%AE%B6%E6%97%8F%EF%BC%88%E3%81%A9%E3%81%A1%E3%82%89%E3%81%8B%EF%BC%89%EF%BC%9A%0A%E3%81%8A%E9%9B%BB%E8%A9%B1%E7%95%AA%E5%8F%B7%EF%BC%9A%0A%E3%81%8A%E4%BD%8F%E3%81%BE%E3%81%84%E3%81%AE%E5%B8%82%E5%8C%BA%E7%94%BA%E6%9D%91%EF%BC%9A%0A%E6%B0%97%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%A6%E3%81%84%E3%82%8B%E3%81%93%E3%81%A8%EF%BC%9A%0A">メールで相談する</a>
+          <p class="mail-box__address">info@withwie.jp</p>
+          <p class="mail-box__sub">メールには、次のことをお書きください。</p>
+          <ul class="mail-box__list">
+            <li>お名前</li>
+            <li>ご本人か、ご家族か</li>
+            <li>お電話番号</li>
+            <li>お住まいの市区町村</li>
+            <li>気になっていること</li>
+          </ul>
+        </div>
 
         <div class="apply-note">
           <h3>お申し込み前に</h3>
@@ -721,13 +682,15 @@
   <div class="container">
     <div class="footer-grid">
       <div>
-        <h3>Wie for Life について</h3>
-        <p>[事業者名]<br>[住所]<br>電話: [電話番号]<br>税理士登録番号: [登録番号]</p>
+        <h3>Wie 暮らしのかかりつけ について</h3>
+        <p>市民活動団体 Wie が運営する、シニアの方とご家族のための取り組みです。札幌市を中心に活動しています。</p>
       </div>
       <div>
         <h3>サイト内リンク</h3>
         <ul>
-          <li><a href="index.html">Wie for Life トップ</a></li>
+          <li><a href="index.html">Wie 暮らしのかかりつけ トップ</a></li>
+          <li><a href="for-you.html">ご本人の方へ</a></li>
+          <li><a href="for-family.html">ご家族の方へ</a></li>
           <li><a href="about.html">私たちについて</a></li>
           <li><a href="consult.html">ご相談内容</a></li>
           <li><a href="services.html">くらしを充実させるサポート</a></li>
@@ -739,14 +702,14 @@
         </ul>
       </div>
       <div>
-        <h3>その他</h3>
+        <h3>お問い合わせ</h3>
         <ul>
-          <li><a href="#">プライバシーポリシー</a></li>
-          <li><a href="#">特定商取引法に基づく表記</a></li>
+          <li><a href="mailto:info@withwie.jp">info@withwie.jp</a></li>
+          <li><a href="https://withwie.jp/">運営：市民活動団体 Wie</a></li>
         </ul>
       </div>
     </div>
-    <p class="copyright">&copy; 2026 Wie for Life</p>
+    <p class="copyright">&copy; 2026 Wie 暮らしのかかりつけ</p>
   </div>
 </footer>
 
